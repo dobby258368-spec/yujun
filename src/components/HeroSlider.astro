@@ -1,0 +1,72 @@
+---
+// 主視覺幻燈片：高度為畫面的 0.5 倍。第一張以 <img> 優先載入（LCP），其餘延遲載入
+import { Image } from "astro:assets";
+import { img } from "../lib/images";
+
+interface Props {
+  slides: { image: string; alt: string }[];
+  title: string;
+  subtitle?: string;
+  cta?: { href: string; label: string };
+}
+const { slides, title, subtitle, cta } = Astro.props;
+---
+<section class="hero" aria-roledescription="carousel" aria-label="主視覺">
+  <div class="slides">
+    {slides.map((s, i) => (
+      <div class:list={["slide", { "is-active": i === 0 }]} aria-hidden={i === 0 ? undefined : "true"}>
+        <Image
+          src={img(s.image)}
+          alt={s.alt}
+          widths={[640, 1024, 1600, 2000]}
+          sizes="100vw"
+          loading={i === 0 ? "eager" : "lazy"}
+          fetchpriority={i === 0 ? "high" : "auto"}
+        />
+      </div>
+    ))}
+  </div>
+  <div class="hero-text">
+    <h1>{title}</h1>
+    {subtitle && <p>{subtitle}</p>}
+    {cta && <a href={cta.href} class="btn">{cta.label}</a>}
+  </div>
+  {slides.length > 1 && (
+    <>
+      <button class="slide-nav prev" aria-label="上一張">‹</button>
+      <button class="slide-nav next" aria-label="下一張">›</button>
+      <div class="dots">
+        {slides.map((_, i) => <button aria-label={`第 ${i + 1} 張`} class:list={{ "is-active": i === 0 }} />)}
+      </div>
+    </>
+  )}
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".hero").forEach((hero) => {
+    const slides = hero.querySelectorAll<HTMLElement>(".slide");
+    const dots = hero.querySelectorAll<HTMLButtonElement>(".dots button");
+    if (slides.length < 2) return;
+    let current = 0;
+    let timer: number;
+
+    const go = (i: number) => {
+      slides[current].classList.remove("is-active");
+      slides[current].setAttribute("aria-hidden", "true");
+      dots[current].classList.remove("is-active");
+      current = (i + slides.length) % slides.length;
+      slides[current].classList.add("is-active");
+      slides[current].removeAttribute("aria-hidden");
+      dots[current].classList.add("is-active");
+    };
+    const restart = () => {
+      clearInterval(timer);
+      timer = window.setInterval(() => go(current + 1), 5000);
+    };
+
+    hero.querySelector(".prev")!.addEventListener("click", () => { go(current - 1); restart(); });
+    hero.querySelector(".next")!.addEventListener("click", () => { go(current + 1); restart(); });
+    dots.forEach((d, i) => d.addEventListener("click", () => { go(i); restart(); }));
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) restart();
+  });
+</script>

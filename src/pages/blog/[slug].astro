@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ContactCta from "../../components/ContactCta.astro";
+import { Image, getImage } from "astro:assets";
+import { img } from "../../lib/images";
+import { article } from "../../lib/schema";
+import { getService } from "../../data/services";
+import posts from "../../data/posts.json";
+
+type Post = (typeof posts)[number];
+
+export function getStaticPaths() {
+  return posts.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+
+const { p } = Astro.props as { p: Post };
+const svc = getService(p.service)!;
+const cover = await getImage({ src: img(p.cover), width: 1200, format: "jpg" });
+const others = posts.filter((o) => o.slug !== p.slug).slice(0, 4);
+---
+<Layout
+  title={`${p.title}｜宥涒室內裝潢`}
+  description={p.description}
+  image={p.cover}
+  type="article"
+  breadcrumbs={[{ name: "裝修知識", href: "/blog/" }, { name: p.title, href: `/blog/${p.slug}/` }]}
+  schema={[article(Astro.site!, p, new URL(cover.src, Astro.site).href)]}
+>
+  <article class="article">
+    <div class="wrap narrow">
+      <p class="meta">
+        發布 <time datetime={p.published}>{p.published}</time>・更新 <time datetime={p.updated}>{p.updated}</time>・宥涒室內裝潢
+      </p>
+      <h1>{p.title}</h1>
+      <figure class="cover">
+        <Image src={img(p.cover)} alt={p.title} widths={[640, 1000, 1400]} sizes="(max-width: 800px) 100vw, 800px" loading="eager" fetchpriority="high" />
+      </figure>
+      <div class="prose" set:html={p.html} />
+
+      <aside class="related">
+        <p><strong>相關服務：</strong><a href={`/services/${svc.slug}/`}>{svc.keyword}</a></p>
+        <p><strong>延伸閱讀：</strong></p>
+        <ul>{others.map((o) => <li><a href={`/blog/${o.slug}/`}>{o.title}</a></li>)}</ul>
+      </aside>
+    </div>
+  </article>
+  <ContactCta />
+</Layout>

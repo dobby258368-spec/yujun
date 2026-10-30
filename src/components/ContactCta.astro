@@ -1,0 +1,18 @@
+---
+import { SITE } from "../data/site";
+
+interface Props {
+  heading?: string;
+}
+const { heading = "有任何裝修想法，都歡迎聊聊" } = Astro.props;
+---
+<section class="cta">
+  <div class="wrap">
+    <h2>{heading}</h2>
+    <p>服務地區：桃園、中壢及周邊地區</p>
+    <div class="cta-btns">
+      <a href={SITE.line} target="_blank" rel="noopener" class="btn btn-light">LINE 私訊</a>
+      <a href={`tel:${SITE.phoneIntl}`} class="btn btn-outline">{SITE.phone}</a>
+    </div>
+  </div>
+</section>
