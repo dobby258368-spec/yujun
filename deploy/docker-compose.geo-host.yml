@@ -12,7 +12,7 @@ services:
     environment:
       CONTENT_SOURCE: api
       GEO_API_URL: http://backend:8000
-      STORE_SLUG: yujun
+      STORE_SLUG: enjoy-no1
     depends_on:
       - backend
 

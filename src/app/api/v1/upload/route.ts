@@ -1,16 +1,16 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
+import { DEV, notFound } from "@/lib/dev-pages";
 
-// 開發用編輯器的圖片上傳：存到 public/uploads/yujun/。只在 next dev 開放。
-// 格式與大小限制同 GEO 的 backend/app/api/uploads.py；搬進 GEO 後改用 GEO 的上傳 API
-const DEV = process.env.NODE_ENV === "development";
+// 模擬 GEO 的 backend/app/api/uploads.py，格式與大小限制相同（開發用，不搬進 GEO）。
+// 圖片存到 public/uploads/yujun/，回傳的網址匯入 GEO 時由 import_yujun.py 改寫
 const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "yujun");
 const ALLOWED_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".gif", ".webp"]);
 const MAX_IMAGE_SIZE = 10 * 1024 * 1024;
 
 export async function POST(request: Request) {
-  if (!DEV) return Response.json({ detail: "Not Found" }, { status: 404 });
+  if (!DEV) return notFound();
   const file = (await request.formData()).get("file");
   if (!(file instanceof File) || !file.type.startsWith("image/")) {
     return Response.json({ detail: "只能上傳圖片檔" }, { status: 400 });

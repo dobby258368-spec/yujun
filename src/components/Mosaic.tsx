@@ -2,7 +2,7 @@
 // 桌機一列兩組（4 格），奇數列左右對調形成棋盤格；平板一列一組、逐組對調；手機圖上文下
 import Link from "next/link";
 import Img from "@/components/Img";
-import type { MosaicItem } from "@/blocks/types";
+import type { MosaicItem } from "@/components/templates/yujun/types";
 
 export default function Mosaic({
   items,

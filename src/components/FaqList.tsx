@@ -1,4 +1,4 @@
-import type { Faq } from "@/blocks/types";
+import type { Faq } from "@/components/templates/yujun/types";
 
 export default function FaqList({ faqs, heading = "常見問題" }: { faqs: Faq[]; heading?: string }) {
   return (

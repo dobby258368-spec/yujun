@@ -10,7 +10,7 @@
 | `CONTENT_SOURCE` | 建置＋執行 | `local`：讀 image 內的 `content/`，建置時產生靜態頁<br>`api`：讀 GEO 公開 API，請求時渲染、資料快取 60 秒 |
 | `NEXT_PUBLIC_GEO_PUBLIC_URL` | 建置 | `api` 模式才需要。GEO 的公開網址，圖片 `/uploads/...` 從這裡取 |
 | `GEO_API_URL` | 執行 | `api` 模式才需要。伺服器端呼叫 GEO 的位址，同機時是 `http://backend:8000` |
-| `STORE_SLUG` | 執行 | GEO 上的品牌 slug，預設 `yujun` |
+| `STORE_SLUG` | 執行 | GEO 上的品牌 slug（宥涒是 `enjoy-no1`）。未設定時為 `yujun`，對應本機 content/store.json |
 | `REVALIDATE_SECRET` | 執行 | 放在別台機器時設定。GEO 呼叫 `/api/revalidate/` 要帶 `x-revalidate-secret` 標頭 |
 
 ## 本機用 docker 試跑

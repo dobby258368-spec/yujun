@@ -53,23 +53,31 @@ yujun 前台用的就是這幾支，回應格式的對照在 yujun 的 `src/cont
 - slug 規則依類型：classic 維持 `^[a-z0-9]+(?:-[a-z0-9]+)*$`；yujun 允許多段 `^[a-z0-9]+(?:-[a-z0-9]+)*(?:/[a-z0-9]+(?:-[a-z0-9]+)*)*$`（同 yujun 的 `SLUG_PATTERN`）。
 - slug 重複檢查改為同品牌、**同類型**內不重複。
 - 頁面清單（後台）依目前編輯的類型篩選。
-- 驗證：後端至少檢查每個 block 的 `type` 屬於該類型（yujun 的 type 清單見 `src/blocks/types.ts`）；欄位層級的驗證由前端 `registry.ts` 的 `validatePage` 負責。
+- 驗證：後端至少檢查每個 block 的 `type` 屬於該類型（yujun 的 type 清單見 `src/components/templates/yujun/types.ts`）；欄位層級的驗證由前端 `registry.ts` 的 `validatePage` 負責（存檔已發佈的頁面、發佈時檢查，草稿可以不完整）。
+- `GET /api/v1/stores/me` 回傳加 `site_template`，編輯器靠它分流。
 - 文章 API（含 admin 的 `/posts/{id}`）加 `meta` 的讀寫。
 - 上傳 API 不變。注意它回傳的是**絕對網址** `{BASE_URL}/uploads/img/...`，yujun 前台兩種網址都支援。
 
 ### 2.5 後台介面（`frontend/src/app/dashboard/`）
 
-搬進 GEO 前台的檔案（放在 `components/templates/yujun/`，classic 的 `components/blocks/` 不動）：
+編輯器不是另一套：yujun 用的就是 GEO 的清單頁、編輯頁和 `BlockEditor`，只透過擴充點接上自己的區塊。執行 `geo/graft-editor.sh` 即可（步驟見 `TODOS.md`）。
 
-| yujun 專案 | 用途 |
+| GEO 既有檔案（`geo/patches/01-editor-core.patch`，+83/−22 行） | 改了什麼 |
 |---|---|
-| `src/blocks/types.ts`、`src/blocks/registry.ts` | block 格式、欄位定義、`validatePage` |
-| `src/editor/BlockEditor.tsx`、`src/editor/FieldInput.tsx` | yujun 的區塊編輯器，介面與 GEO 的 `BlockEditor` 相同（`blocks`、`onChange`、`onUploadImage`） |
-| `src/editor/Editor.tsx` | 參考用：頁面設定、meta 面板、新頁面預設區塊（`TEMPLATES`）的寫法 |
+| `components/blocks/BlockEditor.tsx` | 多一個選配 prop `extension`（區塊選單、預設值、表單）。沒傳時行為與原本相同，classic 的 8 段表單不動 |
+| `app/dashboard/website/[id]/page.tsx` | 依 `store.site_template` 取得 template；slug 規則、發佈前驗證、meta 面板、公開網址、選配的預覽外框 |
+| `app/dashboard/website/page.tsx` | slug 規則、新頁面預設內容、清單切換發佈前驗證、公開網址 |
 
-要做的事：
+| 新增檔案（`components/templates/`） | 用途 |
+|---|---|
+| `index.ts` | `SiteTemplate` 介面與對照表。classic 不在表內，`getSiteTemplate` 回傳 undefined |
+| `yujun/index.tsx` | 把 yujun 接上擴充點：區塊選單與圖示、新頁面預設區塊、meta 面板 |
+| `yujun/registry.ts`、`yujun/types.ts` | 18 種區塊的欄位定義與預設值、`validatePage` |
+| `yujun/FieldInput.tsx` | 依欄位定義產生表單。圖片用 GEO 的 `ImageCropModal`，`html` 欄位用 GEO 的 `TraditionalEditor` |
+| `yujun/preview/`（選配，之後才搬） | 即時預覽模組 |
 
-- `website/[id]` 依 `store.site_template` 選擇 classic 或 yujun 的編輯器。yujun 多一個 meta 面板（`metaFieldsFor(slug)`）；`html` 欄位改用 GEO 既有的 `TraditionalEditor`。
+要另外做的事：
+
 - 品牌設定（`admin/brands/[storeId]`）加「網站類型」：建立時選擇，之後可切換；切換前提醒目標類型有沒有頁面，並提供預覽（見 2.6）。
 - 文章編輯頁在 yujun 類型時多三個欄位：封面、摘要描述、相關服務。
 

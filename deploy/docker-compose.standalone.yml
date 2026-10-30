@@ -12,7 +12,7 @@ services:
     environment:
       CONTENT_SOURCE: api
       GEO_API_URL: https://geoseo-service.com
-      STORE_SLUG: yujun
+      STORE_SLUG: enjoy-no1
       REVALIDATE_SECRET: ${REVALIDATE_SECRET}
 
   nginx:

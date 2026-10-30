@@ -1,25 +1,36 @@
 "use client";
 
-// 即時預覽：iframe 載入前台的 /editor-preview/（使用前台的 layout 與 CSS），
-// 把未存檔的草稿用 postMessage 傳過去，由前台元件直接渲染
+// 即時預覽模組（編輯器端）：編輯區右邊放一個 iframe，載入前台的預覽頁，把未存檔的草稿用 postMessage 傳過去。
+// 這個模組只靠 protocol.ts 和前台溝通，不依賴前台程式；前台與編輯器不同網域時設定 NEXT_PUBLIC_YUJUN_PREVIEW_URL
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Monitor, Smartphone } from "lucide-react";
-import type { Page, Post } from "@/content/types";
-import type { Site } from "@/lib/site";
+import type { PreviewLayoutProps } from "../..";
+import { PREVIEW_MESSAGE, type PreviewMessage } from "./protocol";
 
-export const PREVIEW_MESSAGE = "yujun-editor-preview";
-
+const PREVIEW_URL = process.env.NEXT_PUBLIC_YUJUN_PREVIEW_URL || "/editor-preview/";
 const WIDTHS = { desktop: 1440, mobile: 390 };
 
-export default function PreviewFrame({ site, page, pages, posts }: { site: Site; page: Page; pages: Page[]; posts: Post[] }) {
+export default function PreviewLayout({ draft, originalSlug, children }: PreviewLayoutProps) {
+  return (
+    <div className="flex gap-6 items-start">
+      <div className="flex-1 min-w-0">{children}</div>
+      <aside className="hidden xl:block w-[45%] shrink-0 sticky top-0 h-[calc(100vh-4rem)] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100">
+        <PreviewFrame draft={draft} originalSlug={originalSlug} />
+      </aside>
+    </div>
+  );
+}
+
+function PreviewFrame({ draft, originalSlug }: Omit<PreviewLayoutProps, "children">) {
   const frame = useRef<HTMLIFrameElement>(null);
   const box = useRef<HTMLDivElement>(null);
   const [device, setDevice] = useState<keyof typeof WIDTHS>("desktop");
   const [size, setSize] = useState({ width: 600, height: 800 });
 
   const send = useCallback(() => {
-    frame.current?.contentWindow?.postMessage({ type: PREVIEW_MESSAGE, site, page, pages, posts }, window.location.origin);
-  }, [site, page, pages, posts]);
+    const message: PreviewMessage = { type: PREVIEW_MESSAGE, draft, originalSlug };
+    frame.current?.contentWindow?.postMessage(message, new URL(PREVIEW_URL, window.location.href).origin);
+  }, [draft, originalSlug]);
 
   // 內容一改就送；iframe 載入完成時會先發 ready，再補送一次
   useEffect(() => {
@@ -29,7 +40,7 @@ export default function PreviewFrame({ site, page, pages, posts }: { site: Site;
 
   useEffect(() => {
     const onMessage = (e: MessageEvent) => {
-      if (e.origin === window.location.origin && e.data?.type === `${PREVIEW_MESSAGE}:ready`) send();
+      if (e.source === frame.current?.contentWindow && e.data?.type === `${PREVIEW_MESSAGE}:ready`) send();
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
@@ -54,7 +65,7 @@ export default function PreviewFrame({ site, page, pages, posts }: { site: Site;
           {(["desktop", "mobile"] as const).map((d) => {
             const Icon = d === "desktop" ? Monitor : Smartphone;
             return (
-              <button key={d} onClick={() => setDevice(d)} className={`p-1.5 rounded-lg ${device === d ? "bg-blue-50 text-blue-600" : "text-slate-400 hover:text-slate-700"}`}>
+              <button key={d} aria-label={d === "desktop" ? "桌面版" : "手機版"} onClick={() => setDevice(d)} className={`p-1.5 rounded-lg ${device === d ? "bg-blue-50 text-blue-600" : "text-slate-400 hover:text-slate-700"}`}>
                 <Icon className="w-4 h-4" />
               </button>
             );
@@ -64,7 +75,7 @@ export default function PreviewFrame({ site, page, pages, posts }: { site: Site;
       <div ref={box} className="flex-1 min-h-0 overflow-hidden flex justify-center">
         <iframe
           ref={frame}
-          src="/editor-preview/"
+          src={PREVIEW_URL}
           title="預覽"
           style={{ width, height: size.height / scale, transform: `scale(${scale})`, transformOrigin: "top center", border: 0, background: "#fff", flexShrink: 0 }}
         />

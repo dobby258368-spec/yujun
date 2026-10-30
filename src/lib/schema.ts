@@ -1,5 +1,5 @@
 // JSON-LD 結構化資料
-import type { Faq } from "@/blocks/types";
+import type { Faq } from "@/components/templates/yujun/types";
 import type { Site } from "@/lib/site";
 
 const abs = (site: URL, path: string) => new URL(path, site).href;

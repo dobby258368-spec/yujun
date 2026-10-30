@@ -1,0 +1,367 @@
+diff --git a/frontend/src/app/dashboard/website/[id]/page.tsx b/frontend/src/app/dashboard/website/[id]/page.tsx
+index 566505b..4115526 100644
+--- a/frontend/src/app/dashboard/website/[id]/page.tsx
++++ b/frontend/src/app/dashboard/website/[id]/page.tsx
+@@ -9,6 +9,7 @@ import dynamic from "next/dynamic";
+ import Modal, { ModalType } from "@/components/ui/Modal";
+ 
+ import BlockEditor, { PageBlock } from "@/components/blocks/BlockEditor";
++import { getSiteTemplate, type SiteTemplate } from "@/components/templates";
+ 
+ interface PageData {
+   id: string;
+@@ -19,6 +20,7 @@ interface PageData {
+   seo_description: string | null;
+   is_published: boolean;
+   sort_order: number;
++  meta?: unknown;
+   created_at?: string;
+   updated_at?: string | null;
+ }
+@@ -42,6 +44,9 @@ export default function WebsitePageEditor() {
+   const [seoTitle, setSeoTitle] = useState("");
+   const [seoDescription, setSeoDescription] = useState("");
+   const [isPublished, setIsPublished] = useState(false);
++  // classic 為 undefined；其他網站類型的差異都由 template 提供
++  const [template, setTemplate] = useState<SiteTemplate | undefined>();
++  const [templateFields, setTemplateFields] = useState<Record<string, unknown>>({});
+ 
+   const [modalState, setModalState] = useState<{
+     isOpen: boolean;
+@@ -61,6 +66,7 @@ export default function WebsitePageEditor() {
+         if (storeRes.ok) {
+           const store = await storeRes.json();
+           setStoreSlug(store.slug || "");
++          setTemplate(getSiteTemplate(store.site_template));
+         }
+         if (pageRes.ok) {
+           const data: PageData = await pageRes.json();
+@@ -71,6 +77,7 @@ export default function WebsitePageEditor() {
+           setSeoTitle(data.seo_title || "");
+           setSeoDescription(data.seo_description || "");
+           setIsPublished(data.is_published || false);
++          setTemplateFields({ meta: data.meta, sort_order: data.sort_order });
+         } else {
+           router.push("/dashboard/website");
+         }
+@@ -86,8 +93,8 @@ export default function WebsitePageEditor() {
+   const handleSlugChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+     const val = e.target.value;
+     setSlug(val);
+-    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(val) && val !== "") {
+-      setSlugError("Slug 只能包含小寫英文字母、數字和連字號，例如：about-us");
++    if (!(template?.slugPattern ?? /^[a-z0-9]+(?:-[a-z0-9]+)*$/).test(val) && val !== "") {
++      setSlugError(template?.slugHint ?? "Slug 只能包含小寫英文字母、數字和連字號，例如：about-us");
+     } else if (val === "home" && pageData?.slug !== "home") {
+       setSlugError("保留字 'home' 專供系統首頁使用，請換一個名稱");
+     } else {
+@@ -101,6 +108,14 @@ export default function WebsitePageEditor() {
+       return;
+     }
+     
++    if (template && (publishState ?? isPublished)) {
++      const errors = template.validatePage({ slug: slug.trim(), title: title.trim(), content: blocks, ...templateFields });
++      if (errors.length) {
++        setModalState({ isOpen: true, type: "error", title: "內容未填完，無法發佈", description: errors.join("；") });
++        return;
++      }
++    }
++
+     setIsSaving(true);
+     const newPublishedState = publishState !== undefined ? publishState : isPublished;
+     try {
+@@ -114,6 +129,7 @@ export default function WebsitePageEditor() {
+           seo_title: seoTitle.trim() || null,
+           seo_description: seoDescription.trim() || null,
+           is_published: newPublishedState,
++          ...(template ? templateFields : {}),
+         }),
+       });
+       if (!res.ok) {
+@@ -153,7 +169,9 @@ export default function WebsitePageEditor() {
+ 
+   if (!pageData) return null;
+ 
+-  return (
++  const publicPath = (s: string) => template?.publicPath?.(s) ?? `/${storeSlug}${s === "home" ? "" : `/${s}`}`;
++
++  const editor = (
+     <div className="max-w-5xl mx-auto space-y-5">
+       {/* Header */}
+       <div className="flex items-center justify-between flex-wrap gap-3">
+@@ -168,7 +186,7 @@ export default function WebsitePageEditor() {
+             <h1 className="text-xl font-bold text-slate-900">
+               編輯頁面 {pageData.slug === "home" && <span className="ml-2 text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">首頁</span>}
+             </h1>
+-            <code className="text-xs text-slate-400">/{storeSlug}{pageData.slug === "home" ? "" : `/${pageData.slug}`}</code>
++            <code className="text-xs text-slate-400">{publicPath(pageData.slug)}</code>
+           </div>
+         </div>
+         <div className="flex items-center gap-2 flex-wrap">
+@@ -181,7 +199,7 @@ export default function WebsitePageEditor() {
+           </button>
+           {storeSlug && isPublished && (
+             <a
+-              href={`/${storeSlug}${pageData.slug === "home" ? "" : `/${pageData.slug}`}`}
++              href={publicPath(pageData.slug)}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="inline-flex items-center px-3 py-2 border border-slate-200 rounded-xl text-sm font-medium text-slate-600 bg-white hover:bg-slate-50 transition-colors"
+@@ -266,7 +284,7 @@ export default function WebsitePageEditor() {
+             <label className="block text-sm font-medium text-slate-700 mb-2">URL Slug (網址路徑)</label>
+             <div className="flex rounded-xl shadow-sm">
+               <span className="inline-flex items-center px-4 rounded-l-xl border border-r-0 border-slate-300 bg-slate-50 text-slate-500 sm:text-sm">
+-                /{storeSlug}/
++                {template ? "/" : `/${storeSlug}/`}
+               </span>
+               <input
+                 type="text"
+@@ -283,11 +301,16 @@ export default function WebsitePageEditor() {
+         )}
+       </div>
+ 
++      {template?.PagePanel && (
++        <template.PagePanel slug={slug} fields={templateFields} onChange={setTemplateFields} onUploadImage={handleUploadImage} />
++      )}
++
+       {/* Block Editor */}
+       <BlockEditor
+         blocks={blocks}
+         onChange={setBlocks}
+         onUploadImage={handleUploadImage}
++        extension={template?.blockEditor}
+       />
+ 
+       {/* Status info */}
+@@ -310,4 +333,15 @@ export default function WebsitePageEditor() {
+       />
+     </div>
+   );
++
++  // 即時預覽是選配模組：網站類型沒有提供 PreviewLayout 時，畫面與原本完全相同
++  if (!template?.PreviewLayout) return editor;
++  return (
++    <template.PreviewLayout
++      draft={{ slug: slug.trim(), title, content: blocks, seo_title: seoTitle, seo_description: seoDescription, is_published: isPublished, ...templateFields }}
++      originalSlug={pageData.slug}
++    >
++      {editor}
++    </template.PreviewLayout>
++  );
+ }
+diff --git a/frontend/src/app/dashboard/website/page.tsx b/frontend/src/app/dashboard/website/page.tsx
+index fc9fa63..f5c5954 100644
+--- a/frontend/src/app/dashboard/website/page.tsx
++++ b/frontend/src/app/dashboard/website/page.tsx
+@@ -5,6 +5,7 @@ import { authFetch } from "@/lib/api";
+ import Link from "next/link";
+ import { Globe, Plus, Pencil, Trash2, Eye, EyeOff, ExternalLink, GripVertical, AlertTriangle } from "lucide-react";
+ import Modal, { ModalType } from "@/components/ui/Modal";
++import { getSiteTemplate, type SiteTemplate } from "@/components/templates";
+ 
+ interface Page {
+   id: string;
+@@ -13,6 +14,8 @@ interface Page {
+   is_published: boolean;
+   sort_order: number;
+   created_at: string;
++  content?: unknown;
++  meta?: unknown;
+ }
+ 
+ export default function WebsiteManagementPage() {
+@@ -24,6 +27,8 @@ export default function WebsiteManagementPage() {
+   const [newTitle, setNewTitle] = useState("");
+   const [newSlug, setNewSlug] = useState("");
+   const [slugError, setSlugError] = useState("");
++  // classic 為 undefined；其他網站類型的差異都由 template 提供
++  const [template, setTemplate] = useState<SiteTemplate | undefined>();
+ 
+   const [modalState, setModalState] = useState<{
+     isOpen: boolean;
+@@ -47,6 +52,7 @@ export default function WebsiteManagementPage() {
+       if (storeRes.ok) {
+         const store = await storeRes.json();
+         setStoreSlug(store.slug || "");
++        setTemplate(getSiteTemplate(store.site_template));
+       }
+       if (pagesRes.ok) {
+         const data = await pagesRes.json();
+@@ -77,8 +83,8 @@ export default function WebsiteManagementPage() {
+ 
+   const handleSlugChange = (val: string) => {
+     setNewSlug(val);
+-    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(val) && val !== "") {
+-      setSlugError("Slug 只能包含小寫英文字母、數字和連字號，例如：about-us");
++    if (!(template?.slugPattern ?? /^[a-z0-9]+(?:-[a-z0-9]+)*$/).test(val) && val !== "") {
++      setSlugError(template?.slugHint ?? "Slug 只能包含小寫英文字母、數字和連字號，例如：about-us");
+     } else if (val === "home") {
+       setSlugError("保留字 'home' 專供系統首頁使用，請換一個名稱");
+     } else {
+@@ -95,7 +101,7 @@ export default function WebsiteManagementPage() {
+       const res = await authFetch("/api/v1/pages", {
+         method: "POST",
+         headers: { "Content-Type": "application/json" },
+-        body: JSON.stringify({ title: newTitle.trim(), slug: newSlug.trim(), is_published: false }),
++        body: JSON.stringify({ title: newTitle.trim(), slug: newSlug.trim(), is_published: false, ...template?.newPage(newSlug.trim(), pages) }),
+       });
+       if (!res.ok) {
+         const err = await res.json();
+@@ -116,6 +122,13 @@ export default function WebsiteManagementPage() {
+   };
+ 
+   const handleTogglePublish = async (page: Page) => {
++    if (template && !page.is_published) {
++      const errors = template.validatePage(page);
++      if (errors.length) {
++        setModalState({ isOpen: true, type: "error", title: "內容未填完，無法發佈", description: errors.join("；") });
++        return;
++      }
++    }
+     try {
+       const res = await authFetch(`/api/v1/pages/${page.id}`, {
+         method: "PATCH",
+@@ -148,6 +161,8 @@ export default function WebsiteManagementPage() {
+     });
+   };
+ 
++  const publicPath = (s: string) => template?.publicPath?.(s) ?? `/${storeSlug}${s === "home" ? "" : `/${s}`}`;
++
+   if (isLoading) {
+     return (
+       <div className="flex items-center justify-center h-64">
+@@ -169,7 +184,7 @@ export default function WebsiteManagementPage() {
+         <div className="flex items-center gap-3">
+           {storeSlug && (
+             <a
+-              href={`/${storeSlug}`}
++              href={publicPath("home")}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="inline-flex items-center px-4 py-2 border border-slate-200 rounded-xl shadow-sm text-sm font-medium text-slate-600 bg-white hover:bg-slate-50 transition-colors"
+@@ -208,7 +223,7 @@ export default function WebsiteManagementPage() {
+               <label className="block text-sm font-medium text-slate-700 mb-1">
+                 URL Slug{" "}
+                 <span className="text-slate-400 font-normal">
+-                  （網址：/{storeSlug}/<strong>{newSlug || "..."}</strong>）
++                  （網址：{template ? "/" : `/${storeSlug}/`}<strong>{newSlug || "..."}</strong>）
+                 </span>
+               </label>
+               <input
+@@ -220,6 +235,7 @@ export default function WebsiteManagementPage() {
+                 }`}
+                 placeholder="例如：about-us"
+               />
++              {template && !slugError && <p className="mt-1 text-xs text-slate-400">{template.slugHint}</p>}
+               {slugError && (
+                 <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                   <AlertTriangle className="h-3 w-3" />{slugError}
+@@ -276,12 +292,12 @@ export default function WebsiteManagementPage() {
+                       )}
+                     </p>
+                     <p className="text-xs text-slate-400 mt-0.5 sm:hidden">
+-                      /{storeSlug}{page.slug === "home" ? "" : `/${page.slug}`}
++                      {publicPath(page.slug)}
+                     </p>
+                   </td>
+                   <td className="px-6 py-4 hidden sm:table-cell">
+                     <code className="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded-lg">
+-                      /{storeSlug}{page.slug === "home" ? "" : `/${page.slug}`}
++                      {publicPath(page.slug)}
+                     </code>
+                   </td>
+                   <td className="px-6 py-4">
+@@ -311,7 +327,7 @@ export default function WebsiteManagementPage() {
+                       </button>
+                       {storeSlug && page.is_published && (
+                         <a
+-                          href={`/${storeSlug}${page.slug === "home" ? "" : `/${page.slug}`}`}
++                          href={publicPath(page.slug)}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           className="p-2 text-blue-500 hover:bg-blue-50 rounded-lg transition-colors"
+diff --git a/frontend/src/components/blocks/BlockEditor.tsx b/frontend/src/components/blocks/BlockEditor.tsx
+index a0e9dc8..829eebc 100644
+--- a/frontend/src/components/blocks/BlockEditor.tsx
++++ b/frontend/src/components/blocks/BlockEditor.tsx
+@@ -1,20 +1,28 @@
+ "use client";
+ 
+-import { useState } from "react";
++import { useState, type ComponentType, type ReactNode } from "react";
+ import { Plus, GripVertical, Trash2, Image as ImageIcon, AlignLeft, LayoutTemplate, BarChart3, GripHorizontal, MousePointerClick, Rss, Contact } from "lucide-react";
+ 
+ export type BlockType = "hero" | "text" | "image_text" | "stats" | "cards" | "cta" | "dynamic_posts" | "dynamic_contact";
+ 
+ export interface PageBlock {
+   id: string;
+-  type: BlockType;
++  type: string; // classic 為 BlockType，其他網站類型由 extension 定義
+   data: any;
+ }
+ 
++// 其他網站類型的區塊：選單、預設值、表單由它提供，外框與操作和 classic 共用
++export interface BlockEditorExtension {
++  blockTypes: { type: string; label: string; icon: ComponentType<{ className?: string }>; desc: string }[];
++  getDefaultData: (type: string) => any;
++  renderForm: (block: PageBlock, onChange: (data: any) => void, onUploadImage?: (file: File) => Promise<string>) => ReactNode;
++}
++
+ interface BlockEditorProps {
+   blocks: PageBlock[];
+   onChange: (blocks: PageBlock[]) => void;
+   onUploadImage?: (file: File) => Promise<string>;
++  extension?: BlockEditorExtension;
+ }
+ 
+ const BLOCK_TYPES = [
+@@ -28,14 +36,15 @@ const BLOCK_TYPES = [
+   { type: "dynamic_contact", label: "聯絡資訊", icon: Contact, desc: "動態讀取全站聯絡資訊" },
+ ];
+ 
+-export default function BlockEditor({ blocks, onChange, onUploadImage }: BlockEditorProps) {
++export default function BlockEditor({ blocks, onChange, onUploadImage, extension }: BlockEditorProps) {
++  const blockTypes = extension?.blockTypes ?? BLOCK_TYPES;
+   const [showAddMenu, setShowAddMenu] = useState(false);
+ 
+-  const addBlock = (type: BlockType) => {
++  const addBlock = (type: string) => {
+     const newBlock: PageBlock = {
+       id: Math.random().toString(36).substring(7),
+       type,
+-      data: getDefaultData(type),
++      data: extension ? extension.getDefaultData(type) : getDefaultData(type as BlockType),
+     };
+     onChange([...blocks, newBlock]);
+     setShowAddMenu(false);
+@@ -96,7 +105,7 @@ export default function BlockEditor({ blocks, onChange, onUploadImage }: BlockEd
+                 #{index + 1}
+               </span>
+               <span className="text-sm font-semibold text-slate-700">
+-                {BLOCK_TYPES.find(t => t.type === block.type)?.label || block.type}
++                {blockTypes.find(t => t.type === block.type)?.label || block.type}
+               </span>
+             </div>
+             <div className="flex items-center gap-1">
+@@ -126,6 +135,8 @@ export default function BlockEditor({ blocks, onChange, onUploadImage }: BlockEd
+ 
+           {/* Block Content Editor */}
+           <div className="p-5">
++            {extension?.renderForm(block, (data) => updateBlock(block.id, data), onUploadImage)}
++
+             {block.type === "hero" && (
+               <div className="space-y-4">
+                 <div className="grid grid-cols-2 gap-4">
+@@ -336,10 +347,10 @@ export default function BlockEditor({ blocks, onChange, onUploadImage }: BlockEd
+       <div className="relative">
+         {showAddMenu ? (
+           <div className="bg-white border border-slate-200 rounded-2xl shadow-xl p-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+-            {BLOCK_TYPES.map(bt => (
++            {blockTypes.map(bt => (
+               <button
+                 key={bt.type}
+-                onClick={() => addBlock(bt.type as BlockType)}
++                onClick={() => addBlock(bt.type)}
+                 className="flex flex-col items-center p-4 text-center border border-slate-100 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-colors"
+               >
+                 <bt.icon className="w-6 h-6 text-blue-600 mb-2" />

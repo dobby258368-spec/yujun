@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { cache } from "react";
 import { connection } from "next/server";
-import { validateBlocks } from "@/blocks/registry";
+import { validateBlocks } from "@/components/templates/yujun/registry";
 import type { Page, Post, Store } from "@/content/types";
 
 // 內容讀取層。函式介面對齊 GEO 前台的 frontend/src/lib/store-data.ts，

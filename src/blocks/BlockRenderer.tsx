@@ -11,7 +11,7 @@ import Img from "@/components/Img";
 
 import { pagePath, isCasePage, isServicePage, serviceKey, type Site } from "@/lib/site";
 import type { Page, Post } from "@/content/types";
-import type { Block, BlockData, Faq, MosaicItem } from "./types";
+import type { Block, BlockData, Faq, MosaicItem } from "@/components/templates/yujun/types";
 
 export interface BlockContext {
   site: Site;

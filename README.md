@@ -8,7 +8,7 @@ Next.js 16（與 GEO-Saas 前台同版本）。內容格式對齊 GEO，可以�
 ```bash
 npm install
 npm run dev          # http://localhost:3000，網站
-                     # http://localhost:3000/editor/，開發用編輯器（只在 dev 開放）
+                     # http://localhost:3000/dashboard/website/，編輯器（只在 dev 開放，存檔寫回 content/）
 npm run build && npm start   # 正式模式
 ```
 
@@ -19,11 +19,14 @@ npm run build && npm start   # 正式模式
 | `content/` | 網站內容（GEO 格式）：`store.json`、`pages/*.json`（slug 的 `/` 存成 `__`）、`posts/*.json` |
 | `public/uploads/yujun/` | 內容用到的圖片 |
 | `src/app/(site)/` | 前台頁面：首頁、`[...slug]`（所有內容頁）、`blog/[slug]` |
-| `src/app/(editor)/`、`src/editor/` | 開發用編輯器（有自己的根 layout 與 Tailwind，不影響前台） |
-| `src/blocks/` | yujun 類型的 block：型別、欄位定義與驗證（`registry.ts`）、渲染（`BlockRenderer.tsx`） |
+| `src/app/(editor)/dashboard/website/`、`src/components/blocks/BlockEditor.tsx` | GEO 的編輯頁（副本，只加擴充點，與 GEO 的差異即 `geo/patches/`）。有自己的根 layout 與 Tailwind，不影響前台 |
+| `src/components/templates/yujun/` | 接進 GEO 編輯器的 yujun 模組：區塊型別、欄位定義與驗證（`registry.ts`）、表單（`FieldInput.tsx`） |
+| `src/components/templates/yujun/preview/` | 即時預覽模組（選配） |
+| `src/app/api/v1/`、`src/lib/dev-pages.ts` | 模擬 GEO 後台 API，讀寫本機 `content/`（只在 dev 開放，不搬進 GEO） |
+| `src/blocks/BlockRenderer.tsx` | yujun 區塊的前台渲染 |
 | `src/lib/content.ts` | 內容讀取層，介面同 GEO 的 `store-data.ts` |
 | `deploy/` | Dockerfile 的使用方式與 nginx、compose 範例 |
-| `geo/` | 給 GEO 的整合規格、migration、匯入腳本（定案前不執行） |
+| `geo/` | 嫁接用的 patch 與腳本、整合規格、migration、匯入腳本（定案前不執行） |
 | `scripts/` | `visual-diff.mjs`（截圖比對）、`mock-geo-api.mjs`（模擬 GEO 公開 API） |
 
 ## 內容來源

@@ -12,6 +12,18 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // 從 GEO 原樣複製的檔案（修改點見 geo/patches/），維持與 GEO 相同，不套這裡的規則
+    "src/components/blocks/BlockEditor.tsx",
+    "src/components/editor/**",
+    "src/components/ui/Modal.tsx",
+    "src/lib/api.ts",
+    "src/app/(editor)/dashboard/**",
+    // 從 GEO 原樣複製的檔案（修改點見 geo/patches/），維持與 GEO 相同，不套這裡的規則
+    "src/components/blocks/BlockEditor.tsx",
+    "src/components/editor/**",
+    "src/components/ui/Modal.tsx",
+    "src/lib/api.ts",
+    "src/app/(editor)/dashboard/**",
   ]),
 ]);
 

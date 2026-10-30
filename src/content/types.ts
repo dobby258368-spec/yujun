@@ -1,6 +1,6 @@
 // 內容資料格式：對齊 GEO 公開 API（GEO commit 00373bc）的 Store、Page、Post 回應。
 // 標「擴充」的欄位 GEO 目前沒有，規格見 GEO-INTEGRATION.md
-import type { Block } from "@/blocks/types";
+import type { Block } from "@/components/templates/yujun/types";
 
 export interface Store {
   name: string;

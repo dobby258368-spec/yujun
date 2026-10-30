@@ -1,70 +1,131 @@
-# 宥涒室內裝潢：待辦事項
+# 宥涒室內裝潢：嫁接待辦
+
+定案前能在這個專案內先做的都已完成（紀錄見 git log）。以下全部是嫁接 GEO 要做的事，細節規格見 [geo/GEO-INTEGRATION.md](geo/GEO-INTEGRATION.md)。
 
 ## 原則：定案前不動 GEO
 
-部署路徑還沒定案（見下方「兩條路」）。在定案之前：
+- **GEO-Saas 一行都不改**：程式、資料庫、設定、正式機都不碰，只能讀。
+- `geo/` 裡的檔案（patch、腳本、SQL）定案前只寫不跑。
+- 所有格式都對照 GEO commit `00373bc`。
 
-- **GEO-Saas 一行都不改**：程式、資料庫、設定、正式機都不碰。可以讀 GEO 的程式碼當作參考。
-- 所有工作都在這個專案裡完成，目標是做到「選融合就搬進 GEO、選獨立就直接上線」都不用重寫。
-- 需要 GEO 配合的部分，只寫成規格文件或腳本（放在 `geo/`），**只寫不跑**。
-- 依照 GEO 設計的格式（API 回應、block 結構、編輯器操作方式）一律對照 GEO commit `00373bc`。定案時先比對 GEO 在那之後的改動，再開始搬。
+## 開工前要決定
 
-## 兩條路（待定案）
+- [ ] **部署路徑**：融合（GEO 的 Next 渲染宥涒前台）或獨立（這個專案自己一個容器）。只影響第 5 步。
+- [ ] **網域**：宥涒用自己的網域，還是 `geoseo-service.com/enjoy-no1/`。正式網域也決定建置時帶的 `SITE_URL`（目前預設 `https://example.com`）。
+- [ ] **文章**：兩種類型共用（建議，下面的步驟以此為準），或各自一套（`posts` 要多一個 `template` 欄位）。
+- [ ] **服務頁**：要不要開放後台編輯（目前開放）。
+- [ ] **Next 升級**：`npm audit` 回報 16.3.0 有 critical 漏洞，修正版本是 16.4.3。GEO 和這個專案都鎖在 16.3.0。建議兩邊一起升級後再嫁接，升級後跑 `npm run visual-diff` 確認畫面。
 
-兩條路的共同前提：**內容和編輯都放在 GEO**。宥涒在 GEO 上就是品牌 `enjoy-no1`，使用者跟其他品牌用同一個後台、一樣的操作方式，只是編輯元件是宥涒專屬的。
+## 嫁接步驟
 
-| | 融合 | 獨立 |
-|---|---|---|
-| 前台 | 由 GEO 的 Next 渲染。品牌多一個「網站類型」欄位（`classic` 或 `yujun`），yujun 類型走獨立的 route group，有自己的根 layout 和 CSS | 這個專案自己打包成容器（`CONTENT_SOURCE=api`），從 GEO API 讀內容 |
-| 存檔後生效 | 沿用 GEO 現有的 revalidate | GEO 存檔後通知 yujun 容器的 `/api/revalidate/` |
-| 部署位置 | GEO 正式機 | GEO 正式機（nginx 加一個 server 區塊）或新 VM |
+每一步做完都可以停：只要品牌的 `site_template` 還是 `classic`，現有網站完全不受影響。
 
-不論選哪條路，「網站類型」都要能切換，而且切換時兩種版本的內容都要保留。
+### 1. 比對 GEO 的改動
 
-## 已完成
+```bash
+git -C <GEO-Saas> diff 00373bc HEAD --stat
+git -C <GEO-Saas> apply --check <yujun>/geo/patches/01-editor-core.patch
+```
 
-- [x] git 初始化，Astro 版存成 tag `astro-baseline`
-- [x] 改用跟 GEO 同版本的 Next.js 16.3.0 + React 19.2.8，tsconfig、eslint、`output: "standalone"` 都跟 GEO 一致
-- [x] 內容改成 GEO 的資料格式（`content/`：store、22 個 page、10 篇 post），頁面由 block 組成
-  - yujun 的 18 種 block 定義在 `src/blocks/`（型別、欄位、驗證），GEO 沒有的欄位標為「擴充」
-- [x] 資料存取層 `src/lib/content.ts`，介面同 GEO 的 `store-data.ts`；`CONTENT_SOURCE=local|api` 切換
-  - 用 `scripts/mock-geo-api.mjs` 驗證過 api 模式：輸出與 local 模式逐頁相同，revalidate 立即生效，建置時不需連線 GEO
-- [x] 圖片改存網址（`public/uploads/yujun/`），支援 GEO 的相對與絕對網址
-- [x] 開發用編輯器 `/editor/`（只在 `npm run dev` 開放）：GEO 後台風格、欄位由 registry 產生、即時預覽、存檔、上傳
-- [x] 部署檔：`Dockerfile`、`deploy/`（GEO 同機與獨立 VM 兩種範例）、`/api/revalidate/`；docker 實測可建置與執行
-- [x] `geo/`：整合規格 `GEO-INTEGRATION.md`、`migration.sql`、匯入腳本 `import_yujun.py`（只寫不跑）
-- [x] 截圖比對工具 `npm run visual-diff`；每個階段都比對過，頁面高度全部一致，版面差異不超過 0.011%
+`--check` 失敗表示 GEO 的編輯器檔案改過，要重新產生 patch（把 GEO 新版複製過來，重做同樣的修改）。
 
-## 定案後才能做（要動 GEO）
+### 2. GEO 資料庫與後端
 
-細節見 `geo/GEO-INTEGRATION.md`。
+依 `BACKUP.md` 備份後：
 
-**兩條路都要做**
-- [ ] 執行 `migration.sql`，修改 Store、Page、Post model（第 2.1、2.2 節）
-- [ ] 公開 API 與後台 API 加上類型與 meta（第 2.3、2.4 節）
-- [ ] 編輯器接進 GEO 後台，建立網站時選類型、切換類型的 UI（含切換前預覽）（第 2.5、2.6 節）
-- [ ] 執行宥涒內容匯入（第 5 節）
-- [ ] 回歸測試：現有 classic 品牌的每一頁都不能變
+- [ ] 執行 `geo/migration.sql`（`stores.site_template`、`stores.template_settings`、`pages.template`、`pages.meta`、`posts.meta`，唯一索引改為 `(store_id, template, slug)`）
+- [ ] model 加欄位（規格 2.2）
+- [ ] `GET /api/v1/stores/me` 回傳加 `site_template`。**編輯器靠這個欄位分流**，沒有就一律當 classic
+- [ ] 後台頁面 API（`pages.py`）：接受 `template`、`meta`；回傳加 `meta`；清單只回 `store.site_template` 的頁面；slug 規則與重複檢查依類型（規格 2.4）
+- [ ] 公開 API（`public.py`）：回傳加擴充欄位、`{page_slug:path}`、依類型篩選（規格 2.3）
+- [ ] `get_public_page` 自動建立首頁的邏輯只給 classic
 
-**只有融合要做**（約 8–10 天，第 3 節）
-- [ ] GEO 前台：現有程式移進 `(platform)` route group，新增 `(tpl-yujun)`，由 middleware 依品牌類型改寫路徑
-- [ ] 自訂網域：middleware 依 Host 找品牌，canonical 和 sitemap 改用該網域，修正爬蟲追蹤用網址第一段判斷品牌的問題
+### 3. 嫁接編輯器（不含即時預覽）
 
-**只有獨立要做**（約 7–9 天，第 4 節）
-- [ ] GEO 存檔後也通知 yujun 容器 revalidate
-- [ ] nginx server 區塊、申請憑證
-- [ ] AI 爬蟲追蹤：讀 nginx log 篩選爬蟲，寫進 GEO 的追蹤表
+```bash
+bash geo/graft-editor.sh <GEO-Saas>
+```
 
-## 待決定
+| 動作 | 檔案 |
+|---|---|
+| 套 patch，加擴充點（共 +83/−22 行，classic 邏輯不動） | `components/blocks/BlockEditor.tsx`、`app/dashboard/website/page.tsx`、`app/dashboard/website/[id]/page.tsx` |
+| 新增 yujun 模組 | `components/templates/index.ts`、`components/templates/yujun/`（`index.tsx`、`FieldInput.tsx`、`registry.ts`、`types.ts`） |
 
-- [ ] 部署路徑：融合還是獨立
-- [ ] 文章（Post）要兩種類型共用，還是各自一套（目前規格以共用設計）
-- [ ] 宥涒用自己的網域，還是 `geoseo-service.com/enjoy-no1/`
-- [ ] 服務頁要不要開放後台編輯（目前編輯器有開放）
-- [ ] 正式網域：建置時要帶 `SITE_URL`，目前預設是 `https://example.com`
+另外手動處理：
+
+- [ ] 宥涒用自己的網域時，GEO 前台建置要帶 `NEXT_PUBLIC_YUJUN_SITE_URL`（`frontend/Dockerfile` 要加 ARG）。用 `/enjoy-no1/` 路徑時，刪掉 `yujun/index.tsx` 的 `publicPath`
+- [ ] 文章編輯頁在 yujun 類型時多三個欄位：封面、摘要描述、相關服務（規格 2.5，**這部分還沒有程式**）
+
+### 4. 匯入宥涒內容
+
+```bash
+cp <yujun>/geo/import_yujun.py <GEO-Saas>/backend/scripts/
+docker cp <yujun>/content geo_backend:/tmp/yujun/content
+docker cp <yujun>/public/uploads/yujun geo_backend:/tmp/yujun/uploads
+
+docker compose -f docker-compose.prod.yml exec backend python -m scripts.import_yujun          # dry-run，逐項檢查
+docker compose -f docker-compose.prod.yml exec backend python -m scripts.import_yujun --apply  # 寫入，品牌仍顯示 classic 版
+```
+
+寫入後 `enjoy-no1` 多 22 個 yujun 頁面，classic 頁面不動。先不要加 `--switch`。
+
+### 5. 宥涒前台（依部署路徑擇一）
+
+**融合**（規格第 3 節，估約 8–10 天）
+
+- [ ] GEO 前台現有程式移進 `app/(platform)/`，新增 `app/(tpl-yujun)/`，內容來自這裡的 `src/app/(site)/`、`src/components/`、`src/blocks/BlockRenderer.tsx`、`src/styles/global.css`
+- [ ] `src/lib/content.ts` 換成 GEO 的 `lib/store-data.ts`
+- [ ] middleware 依 `site_template` 改寫路徑
+- [ ] 自訂網域：`custom_domain`、middleware 依 Host 找品牌、canonical 和 sitemap、修正爬蟲追蹤用網址第一段判斷品牌的問題
+
+**獨立**（規格第 4 節，估約 7–9 天）
+
+- [ ] 依 `deploy/README.md` 部署容器（`CONTENT_SOURCE=api`、`STORE_SLUG=enjoy-no1`），放 GEO 正式機或新 VM
+- [ ] `revalidate_store_pages` 對 `enjoy-no1` 也呼叫 `/api/revalidate/`（結尾要有斜線）
+- [ ] nginx server 區塊、憑證
+- [ ] AI 爬蟲追蹤：讀 nginx log 寫進 `AICrawlerLog`
+
+### 6. 網站類型切換
+
+- [ ] 品牌設定（`admin/brands/[storeId]`）加「網站類型」：建立時選，之後可切換；切換前提醒目標類型有沒有頁面
+- [ ] 切換前預覽：`?preview_template=yujun`（要驗證身分、不可快取）
+- [ ] 決定要不要支援「切換前編輯另一種類型」。目前的編輯頁只編輯 `site_template` 指定的類型，所以匯入後、切換前無法在後台修改 yujun 頁面；要支援的話，頁面清單要多一個類型參數
+
+### 7. 驗收後切換
+
+- [ ] **classic 回歸**：億鑫、豐泰等品牌，每一頁打開不改內容直接存檔，資料庫裡的 `content` 不變；前台每一頁畫面不變
+- [ ] **yujun 編輯**：編輯、發佈、新增頁面、上傳加裁切、圖文欄位，都走真的 GEO 後端
+- [ ] **yujun 前台**：`npm run visual-diff -- <目前版本> <嫁接後版本>`
+- [ ] 全部通過後，`import_yujun --apply --switch` 切換 `enjoy-no1`
+
+## 第一次嫁接之後：即時預覽
+
+預覽是獨立模組，不搬也不影響編輯器（`SiteTemplate.PreviewLayout` 是選配）。
+
+**編輯器端**：
+
+```bash
+bash geo/graft-editor.sh <GEO-Saas> --with-preview
+```
+
+**前台端**：
+
+- 融合：把 `src/app/(site)/editor-preview/` 和 `yujun/preview/PreviewClient.tsx` 搬進 `(tpl-yujun)`，設定 `ENABLE_EDITOR_PREVIEW=1`；預覽網址要帶品牌路徑，所以 GEO 建置時帶 `NEXT_PUBLIC_YUJUN_PREVIEW_URL`
+- 獨立：yujun 容器設定 `ENABLE_EDITOR_PREVIEW=1`，建置時帶 `NEXT_PUBLIC_EDITOR_ORIGIN=<GEO 後台網域>`；GEO 建置時帶 `NEXT_PUBLIC_YUJUN_PREVIEW_URL=<yujun 網域>/editor-preview/`；yujun 的 nginx 要允許 GEO 嵌入，`X-Frame-Options "SAMEORIGIN"` 改成 `Content-Security-Policy "frame-ancestors <GEO 後台網域>"`
+
+**跨網域的情況還沒實測**（目前只測過同網域）。
+
+## 已知限制
+
+- **欄位驗證只在前端**：後端只檢查區塊類型。如果有人繞過編輯頁直接呼叫 API 寫入不完整的內容並發佈，yujun 前台讀到時會回 500。要更嚴格的話，需要在 Python 重寫一份欄位規則。
+- **GEO 的 classic 表單輸入框沒有框線**：`rounded-xl border-slate-300` 少了 `border`。yujun 的表單有加，所以兩邊外觀略有差異。這是 GEO 現有問題，要不要修另外決定。
+- **沒有連過真的 GEO 後端**：`migration.sql`、`import_yujun.py` 只做過語法檢查；編輯器走的是 `src/app/api/v1/` 的模擬 API。
+
+## 不要搬進 GEO 的檔案
+
+`src/app/(editor)/`、`src/app/api/v1/`、`src/lib/dev-pages.ts` 是在這裡跑 GEO 編輯頁用的開發環境。`src/components/blocks/`、`src/components/editor/`、`src/components/ui/Modal.tsx`、`src/lib/api.ts` 是 GEO 檔案的副本（`api.ts` 只改了預設網址），GEO 本來就有。
 
 ## 注意事項
 
-- 不要在前台加 Tailwind 的全域樣式（preflight），它會改變畫面。Tailwind 只在 `(editor)` route group 使用。
-- 改版後跑 `npm run visual-diff -- <舊版網址> <新版網址>` 確認畫面沒變。
-- `content/` 是 local 模式的內容來源，也是匯入 GEO 的來源；用編輯器改完記得 commit。
+- 要改編輯器時，GEO 的三個檔案只動擴充點；改完要重新產生 `geo/patches/01-editor-core.patch`。yujun 專屬的東西一律放 `components/templates/yujun/`。
+- 不要在前台加 Tailwind 的全域樣式（preflight），它會改變畫面。Tailwind 只在 `(editor)` 使用。

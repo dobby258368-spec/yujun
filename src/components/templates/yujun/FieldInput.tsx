@@ -1,15 +1,17 @@
 "use client";
 
-// 依 registry 的欄位定義產生表單控制項。外觀沿用 GEO 後台（Tailwind slate 色系、rounded-xl）
-import { useState } from "react";
+// 依 registry 的欄位定義產生表單控制項。外觀、上傳、裁切、圖文編輯都用 GEO 後台現有的元件
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { ArrowDown, ArrowUp, Plus, X } from "lucide-react";
-import type { Field } from "@/blocks/registry";
-import { imageUrl } from "@/lib/image";
+import ImageCropModal from "@/components/editor/ImageCropModal";
+import { authFetch } from "@/lib/api";
+import type { Field } from "./registry";
+
+const TraditionalEditor = dynamic(() => import("@/components/editor/TraditionalEditor"), { ssr: false });
 
 export interface FieldContext {
   onUploadImage?: (file: File) => Promise<string>;
-  /** service_keys 欄位的選項：服務代號與名稱 */
-  serviceOptions: { key: string; label: string }[];
 }
 
 type Data = Record<string, unknown>;
@@ -62,19 +64,15 @@ export function FieldInput({ field, value, onChange, ctx }: { field: Field; valu
       );
 
     case "textarea":
-    case "html":
       return (
         <div>
           <Label field={field} />
-          <textarea
-            value={(value as string) ?? ""}
-            onChange={(e) => onChange(e.target.value)}
-            rows={field.type === "html" ? 8 : 4}
-            className={field.type === "html" ? `${textareaClass} font-mono text-xs` : textareaClass}
-          />
-          {field.type === "html" && <p className="mt-1 text-xs text-slate-400">HTML。搬進 GEO 後改用 GEO 的圖文編輯器（TraditionalEditor）</p>}
+          <textarea value={(value as string) ?? ""} onChange={(e) => onChange(e.target.value)} rows={4} className={textareaClass} />
         </div>
       );
+
+    case "html":
+      return <HtmlInput field={field} value={(value as string) ?? ""} onChange={onChange} />;
 
     case "number":
       return (
@@ -209,40 +207,76 @@ export function FieldInput({ field, value, onChange, ctx }: { field: Field; valu
       );
     }
 
-    case "service_keys": {
-      const keys = (value as string[]) ?? [];
-      return (
-        <div>
-          <Label field={field} />
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1">
-            {ctx.serviceOptions.map((o) => (
-              <label key={o.key} className="flex items-center gap-2 text-sm text-slate-700">
-                <input
-                  type="checkbox"
-                  checked={keys.includes(o.key)}
-                  onChange={(e) => onChange(e.target.checked ? [...keys, o.key] : keys.filter((k) => k !== o.key))}
-                  className="h-4 w-4 rounded"
-                />
-                {o.label}
-              </label>
-            ))}
-          </div>
-        </div>
-      );
-    }
+    case "service_keys":
+      return <ServiceKeysInput field={field} value={(value as string[]) ?? []} onChange={onChange} />;
   }
+}
+
+function HtmlInput({ field, value, onChange }: { field: Field; value: string; onChange: (v: unknown) => void }) {
+  // 編輯器自己持有內容；value 只在掛載時讀一次，打字時才不會被重設游標
+  const [initial] = useState(value);
+  return (
+    <div>
+      <Label field={field} />
+      <TraditionalEditor initialContent={initial} onChange={onChange} />
+    </div>
+  );
+}
+
+function ServiceKeysInput({ field, value, onChange }: { field: Field; value: string[]; onChange: (v: unknown) => void }) {
+  const [options, setOptions] = useState<{ key: string; label: string }[]>([]);
+  useEffect(() => {
+    authFetch("/api/v1/pages")
+      .then((res) => (res.ok ? res.json() : []))
+      .then((pages: { slug: string; title: string }[]) =>
+        setOptions(pages.filter((p) => p.slug.startsWith("services/")).map((p) => ({ key: p.slug.slice("services/".length), label: p.title }))),
+      );
+  }, []);
+  return (
+    <div>
+      <Label field={field} />
+      <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+        {options.map((o) => (
+          <label key={o.key} className="flex items-center gap-2 text-sm text-slate-700">
+            <input
+              type="checkbox"
+              checked={value.includes(o.key)}
+              onChange={(e) => onChange(e.target.checked ? [...value, o.key] : value.filter((k) => k !== o.key))}
+              className="h-4 w-4 rounded"
+            />
+            {o.label}
+          </label>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function ImageInput({ field, value, onChange, ctx }: { field: Field; value: string; onChange: (v: unknown) => void; ctx: FieldContext }) {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
+  const [cropFile, setCropFile] = useState<File | null>(null);
+
+  const upload = async (file: File) => {
+    if (!ctx.onUploadImage) return;
+    setUploading(true);
+    setError("");
+    try {
+      onChange(await ctx.onUploadImage(file));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "上傳失敗");
+    } finally {
+      setUploading(false);
+    }
+  };
+
   return (
     <div>
       <Label field={field} />
       <div className="flex gap-3 items-start">
         {value ? (
           // eslint-disable-next-line @next/next/no-img-element -- 編輯器縮圖，不經 next/image
-          <img src={imageUrl(value)} alt="" className="h-16 w-24 shrink-0 object-cover rounded-lg border border-slate-200" />
+          <img src={value} alt="" className="h-16 w-24 shrink-0 object-cover rounded-lg border border-slate-200" />
         ) : (
           <div className="h-16 w-24 shrink-0 bg-slate-100 rounded-lg flex items-center justify-center text-xs text-slate-400">無圖片</div>
         )}
@@ -254,19 +288,13 @@ function ImageInput({ field, value, onChange, ctx }: { field: Field; value: stri
               accept="image/jpeg,image/png,image/gif,image/webp"
               disabled={uploading}
               className="text-xs"
-              onChange={async (e) => {
+              onChange={(e) => {
                 const file = e.target.files?.[0];
                 e.target.value = "";
-                if (!file || !ctx.onUploadImage) return;
-                setUploading(true);
-                setError("");
-                try {
-                  onChange(await ctx.onUploadImage(file));
-                } catch (err) {
-                  setError(err instanceof Error ? err.message : "上傳失敗");
-                } finally {
-                  setUploading(false);
-                }
+                if (!file) return;
+                // 裁切會失去 GIF 動畫，直接上傳原檔（同 TraditionalEditor）
+                if (file.type === "image/gif") upload(file);
+                else setCropFile(file);
               }}
             />
           )}
@@ -274,6 +302,16 @@ function ImageInput({ field, value, onChange, ctx }: { field: Field; value: stri
           {error && <p className="text-xs text-red-500">{error}</p>}
         </div>
       </div>
+      {cropFile && (
+        <ImageCropModal
+          file={cropFile}
+          onCancel={() => setCropFile(null)}
+          onConfirm={async (cropped) => {
+            await upload(cropped);
+            setCropFile(null);
+          }}
+        />
+      )}
     </div>
   );
 }
