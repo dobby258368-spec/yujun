@@ -1,0 +1,131 @@
+{
+  "sort_order": 11,
+  "is_published": true,
+  "meta": {
+    "short": "空間設計",
+    "en": "Space Design",
+    "hero": "/uploads/yujun/34fb38e8c23f4df582fbf321cbf613d6.png",
+    "summary": "桃園推薦空間設計，空間好用，生活才會舒服。宥涒室內裝潢從生活需求出發，規劃收納動線、採光與燈光層次，並透過格局調整、淺色系搭配與整合式櫃體，讓小坪數也能放大，兼顧美感與實用，讓每一坪都用得剛剛好。"
+  },
+  "slug": "services/space-design",
+  "title": "桃園推薦空間設計",
+  "seo_title": "桃園推薦空間設計｜收納動線、採光、小坪數規劃｜宥涒室內裝潢",
+  "seo_description": "桃園推薦空間設計，宥涒室內裝潢從生活需求出發，規劃收納動線、採光與燈光層次，透過格局調整讓小坪數也能放大，兼顧美感與實用。服務桃園、中壢及周邊地區。",
+  "content": [
+    {
+      "id": "21301a48-0bf2-46ec-8eae-d097703bd1ec",
+      "type": "hero_slider",
+      "data": {
+        "title": "桃園推薦空間設計",
+        "subtitle": "讓每一坪都用得剛剛好。",
+        "cta": {
+          "label": "預約諮詢",
+          "href": "/contact/"
+        },
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/34fb38e8c23f4df582fbf321cbf613d6.png",
+            "alt": "桃園推薦空間設計"
+          },
+          {
+            "image_url": "/uploads/yujun/64032842f36b48f4a6a6624f08c053cb.png",
+            "alt": "收納動線規劃"
+          },
+          {
+            "image_url": "/uploads/yujun/25311f0cc92c0f41da6e80d4a2b53d71.jpg",
+            "alt": "採光與燈光層次"
+          },
+          {
+            "image_url": "/uploads/yujun/4dce66f1a1ef73f2b3326f9c0c33d434.jpg",
+            "alt": "小坪數也能放大"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c4df363f-5478-4d9a-be32-3c75100e7467",
+      "type": "intro",
+      "data": {
+        "text": "桃園推薦空間設計，空間好用，生活才會舒服。宥涒室內裝潢從生活需求出發，規劃收納動線、採光與燈光層次，並透過格局調整、淺色系搭配與整合式櫃體，讓小坪數也能放大，兼顧美感與實用，讓每一坪都用得剛剛好。"
+      }
+    },
+    {
+      "id": "c3adcaab-a12d-483f-98b0-c81b71c72658",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "收納動線規劃",
+            "body": "東西放在用得到的地方，收拾就變得輕鬆。依照使用習慣安排櫃體位置，讓收納融入動線，家裡自然整齊。",
+            "image_url": "/uploads/yujun/64032842f36b48f4a6a6624f08c053cb.png"
+          },
+          {
+            "heading": "採光與燈光層次",
+            "body": "善用自然光，搭配嵌燈、間接照明與主燈，不同時段、不同活動都有合適的光線，空間看起來更明亮，也更有層次。",
+            "image_url": "/uploads/yujun/25311f0cc92c0f41da6e80d4a2b53d71.jpg"
+          },
+          {
+            "heading": "小坪數也能放大",
+            "body": "透過格局調整、淺色系搭配與整合式櫃體，減少零碎空間，讓小坪數的家看起來更寬敞、住起來更舒適。",
+            "image_url": "/uploads/yujun/4dce66f1a1ef73f2b3326f9c0c33d434.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "91d4e38f-0a3b-4bab-a1d0-d9512d4f0bfe",
+      "type": "note",
+      "data": {
+        "heading": "我們的空間設計理念",
+        "body": "好的空間設計，不只是好看的照片，而是每天回到家都覺得舒服。宥涒室內裝潢從生活需求出發，兼顧美感與實用，依照每個家的條件，規劃最適合的空間配置。"
+      }
+    },
+    {
+      "id": "f3c0d204-22c8-4368-bfbe-8abf555a9b62",
+      "type": "faq",
+      "data": {
+        "heading": "桃園推薦空間設計常見問題",
+        "items": [
+          {
+            "q": "小坪數怎麼讓空間看起來更大？",
+            "a": "可以透過格局調整、淺色系搭配與整合式櫃體減少零碎空間，再搭配良好的採光與燈光層次，讓空間看起來更寬敞。"
+          },
+          {
+            "q": "收納櫃做越多越好嗎？",
+            "a": "不一定。櫃體應依照使用習慣安排在動線上，坪數有限的住宅更要避免過度設置櫃體，保留適當的走道與活動空間。"
+          },
+          {
+            "q": "燈光要怎麼規劃？",
+            "a": "善用自然光，再搭配嵌燈、間接照明與主燈，讓不同時段、不同活動都有合適的光線。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "16cb5abc-530b-4c70-b462-fd3fa42f5b3a",
+      "type": "related_reading",
+      "data": {
+        "heading": "延伸閱讀",
+        "sub": "Read More"
+      }
+    },
+    {
+      "id": "1bd73cd5-7914-4bd3-9038-32c97c73c80a",
+      "type": "service_links",
+      "data": {
+        "heading": "其他服務",
+        "sub": "Services",
+        "columns": 3,
+        "max_width": 900,
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

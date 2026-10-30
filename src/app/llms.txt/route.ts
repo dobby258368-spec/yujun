@@ -1,38 +1,39 @@
-import { SITE, WORK_ITEMS } from "@/data/site";
-import { SERVICES } from "@/data/services";
-import { CASES } from "@/data/cases";
+import { STORE_SLUG, getStore, getStorePages, getStorePosts, pagePath } from "@/lib/content";
 import { SITE_URL } from "@/lib/seo";
-import posts from "@/data/posts.json";
+import { isCasePage, isServicePage, siteOf } from "@/lib/site";
 
-export const dynamic = "force-static";
+export const revalidate = 60;
 
 // 給 AI 搜尋 / LLM 讀的網站摘要（llms.txt）
-export function GET() {
+export async function GET() {
+  const [store, pages, posts] = await Promise.all([getStore(STORE_SLUG), getStorePages(STORE_SLUG), getStorePosts(STORE_SLUG)]);
+  if (!store) return new Response("Not found", { status: 404 });
+  const site = siteOf(store);
   const u = (p: string) => new URL(p, SITE_URL).href;
-  const body = `# ${SITE.name}
+  const others = ["process", "faq", "about", "contact"]
+    .map((slug) => pages.find((p) => p.slug === slug))
+    .filter((p) => p !== undefined);
+  const body = `# ${site.name}
 
-> ${SITE.description}
+> ${site.description}
 
-- 電話：${SITE.phone}
-- 地址：${SITE.address.full}
-- 服務地區：桃園、中壢及周邊地區
-- LINE：${SITE.line}
-- 承接工程：${WORK_ITEMS.join("、")}
+- 電話：${site.phone}
+- 地址：${site.address.full}
+- 服務地區：${site.areaText}
+- LINE：${site.line}
+- 承接工程：${site.workItems.join("、")}
 
 ## 服務項目
-${SERVICES.map((s) => `- [${s.keyword}](${u(`/services/${s.slug}/`)})：${s.seoDescription}`).join("\n")}
+${pages.filter(isServicePage).map((s) => `- [${s.title}](${u(pagePath(s.slug))})：${s.seo_description}`).join("\n")}
 
 ## 工程實績
-${CASES.map((c) => `- [${c.title}](${u(`/cases/${c.slug}/`)})：${c.summary}`).join("\n")}
+${pages.filter(isCasePage).map((c) => `- [${c.title}](${u(pagePath(c.slug))})：${c.meta.summary}`).join("\n")}
 
 ## 裝修知識
 ${posts.map((p) => `- [${p.title}](${u(`/blog/${p.slug}/`)})`).join("\n")}
 
 ## 其他
-- [裝修流程與工序](${u("/process/")})
-- [常見問題](${u("/faq/")})
-- [關於宥涒](${u("/about/")})
-- [聯絡我們](${u("/contact/")})
+${others.map((p) => `- [${p.title}](${u(pagePath(p.slug))})`).join("\n")}
 `;
   return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 }

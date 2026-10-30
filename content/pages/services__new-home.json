@@ -1,0 +1,131 @@
+{
+  "sort_order": 7,
+  "is_published": true,
+  "meta": {
+    "short": "新成屋裝潢",
+    "en": "New Home",
+    "hero": "/uploads/yujun/f5266cb3b649429c9de3da2e7a2ef376.png",
+    "summary": "桃園新成屋裝潢，第一個家從好的規劃開始。宥涒室內裝潢在交屋後協助您確認格局、插座與燈具位置，依照家具尺寸與生活習慣規劃需要增加的管線與照明，並一併安排收納櫃體與天花板設計，一次規劃到位，避免入住後才發現不夠用。"
+  },
+  "slug": "services/new-home",
+  "title": "桃園新成屋裝潢",
+  "seo_title": "桃園新成屋裝潢｜交屋後一次規劃到位｜宥涒室內裝潢",
+  "seo_description": "桃園新成屋裝潢交給宥涒室內裝潢！交屋後從格局確認、插座與照明規劃、收納櫃體配置到天花板設計，依照生活習慣量身規劃，一次到位，入住更省心。服務桃園、中壢及周邊地區。",
+  "content": [
+    {
+      "id": "b02c6fe1-6790-49f6-9ca0-64674199dcfb",
+      "type": "hero_slider",
+      "data": {
+        "title": "桃園新成屋裝潢",
+        "subtitle": "從空屋開始，打造專屬於您的家。",
+        "cta": {
+          "label": "預約諮詢",
+          "href": "/contact/"
+        },
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/f5266cb3b649429c9de3da2e7a2ef376.png",
+            "alt": "桃園新成屋裝潢"
+          },
+          {
+            "image_url": "/uploads/yujun/eca80ba1799547f1a1c7f516afa2e1bc.png",
+            "alt": "交屋後先做好規劃"
+          },
+          {
+            "image_url": "/uploads/yujun/20a96af330da2aab68e4774cc8b2d1a3.jpg",
+            "alt": "收納一次規劃到位"
+          },
+          {
+            "image_url": "/uploads/yujun/e060a53842c5aa4d59ebfec39917d18a.jpg",
+            "alt": "天花板與燈光設計"
+          }
+        ]
+      }
+    },
+    {
+      "id": "deba7544-47fb-4652-a769-7861e1e57089",
+      "type": "intro",
+      "data": {
+        "text": "桃園新成屋裝潢，第一個家從好的規劃開始。宥涒室內裝潢在交屋後協助您確認格局、插座與燈具位置，依照家具尺寸與生活習慣規劃需要增加的管線與照明，並一併安排收納櫃體與天花板設計，一次規劃到位，避免入住後才發現不夠用。"
+      }
+    },
+    {
+      "id": "e1f43711-9d82-48bb-99c9-969ce0ca678a",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "交屋後先做好規劃",
+            "body": "新成屋交屋後，先確認格局與插座、燈具位置，再依照家具尺寸與生活習慣，規劃需要增加的管線與照明，避免入住後才發現不夠用。",
+            "image_url": "/uploads/yujun/eca80ba1799547f1a1c7f516afa2e1bc.png"
+          },
+          {
+            "heading": "收納一次規劃到位",
+            "body": "玄關、客廳、臥室到廚房，依照每個空間的用途配置櫃體；鞋子、衣物、雜物都有地方放，住得越久越能感受到好處。",
+            "image_url": "/uploads/yujun/20a96af330da2aab68e4774cc8b2d1a3.jpg"
+          },
+          {
+            "heading": "天花板與燈光設計",
+            "body": "天花板可以修飾管線與樑柱，也能搭配嵌燈與間接照明，讓空間的光線更均勻，營造溫暖舒適的居家氛圍。",
+            "image_url": "/uploads/yujun/e060a53842c5aa4d59ebfec39917d18a.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5ec60ffe-ccee-4e9c-9930-e9b3fcb6cf81",
+      "type": "note",
+      "data": {
+        "heading": "新成屋裝潢的流程",
+        "body": "現場丈量 → 需求討論 → 設計規劃與報價 → 確認後開工 → 施工進度回報 → 完工驗收。每個階段都與屋主確認後再進行，讓新家的每個細節都符合期待。"
+      }
+    },
+    {
+      "id": "9e4d8dfa-93c7-40ca-b4bd-81b18ab9123d",
+      "type": "faq",
+      "data": {
+        "heading": "桃園新成屋裝潢常見問題",
+        "items": [
+          {
+            "q": "新成屋交屋後要先做什麼？",
+            "a": "先確認格局、插座與燈具位置，再依照家具尺寸與生活習慣，規劃需要增加的管線與照明，避免入住後才發現不夠用。"
+          },
+          {
+            "q": "新成屋一定要做天花板嗎？",
+            "a": "不一定。天花板可以修飾管線與樑柱，也能搭配嵌燈與間接照明；是否需要，會依現場樑柱、管線狀況與您喜歡的風格一起評估。"
+          },
+          {
+            "q": "收納櫃要怎麼規劃比較好？",
+            "a": "依照玄關、客廳、臥室、廚房各空間的用途與物品數量配置櫃體，讓鞋子、衣物、雜物都有固定位置。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "7b61a155-c90b-441b-8f38-32dc1fbc6d7e",
+      "type": "related_reading",
+      "data": {
+        "heading": "延伸閱讀",
+        "sub": "Read More"
+      }
+    },
+    {
+      "id": "9c30eeab-374b-4243-8d9a-cf59becd8648",
+      "type": "service_links",
+      "data": {
+        "heading": "其他服務",
+        "sub": "Services",
+        "columns": 3,
+        "max_width": 900,
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

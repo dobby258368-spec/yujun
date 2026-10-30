@@ -1,0 +1,86 @@
+{
+  "sort_order": 15,
+  "is_published": true,
+  "meta": {
+    "type": "室內裝潢",
+    "cover": "/uploads/yujun/67e63cee64654e20a7500fe41611cc9b.png",
+    "summary": "房屋經長時間使用，出現天花板老舊、採光不均、牆面劣化與收納不足等問題。透過天花板、照明、木地板與牆面收納整合，讓客廳更明亮、整潔且富有層次。",
+    "services": [
+      "interior-decoration",
+      "space-design"
+    ]
+  },
+  "slug": "cases/loft-living-room",
+  "title": "躍層住宅客廳翻新",
+  "seo_title": "躍層住宅客廳翻新｜室內裝潢實績｜宥涒室內裝潢",
+  "seo_description": "房屋經長時間使用，出現天花板老舊、採光不均、牆面劣化與收納不足等問題。透過天花板、照明、木地板與牆面收納整合，讓客廳更明亮、整潔且富有層次。",
+  "content": [
+    {
+      "id": "90c7bac9-ccca-43b9-9ebd-21b9304d39e0",
+      "type": "hero_slider",
+      "data": {
+        "title": "躍層住宅客廳翻新",
+        "subtitle": "室內裝潢",
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/342bfdeb2bd3441f8f03066b129315cb.png",
+            "alt": "躍層住宅客廳翻新・翻新前"
+          },
+          {
+            "image_url": "/uploads/yujun/67e63cee64654e20a7500fe41611cc9b.png",
+            "alt": "躍層住宅客廳翻新・完成後"
+          }
+        ]
+      }
+    },
+    {
+      "id": "90e7a9e2-b4c3-48c1-a859-e38d9c12930d",
+      "type": "intro",
+      "data": {
+        "text": "房屋經長時間使用，出現天花板老舊、採光不均、牆面劣化與收納不足等問題。透過天花板、照明、木地板與牆面收納整合，讓客廳更明亮、整潔且富有層次。"
+      }
+    },
+    {
+      "id": "7630d656-3e7f-44f2-a19d-e94292f1208c",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "翻新前",
+            "body": "房屋經過長時間使用，出現天花板老舊、室內採光不均、牆面劣化及收納空間不足問題。具有特殊躍層結構的住宅，更需要仔細評估空間配置與生活動線。",
+            "image_url": "/uploads/yujun/342bfdeb2bd3441f8f03066b129315cb.png"
+          },
+          {
+            "heading": "完成後",
+            "body": "天花板重新規劃嵌燈配置，讓室內光線更加均勻柔和；木地板為空間增添溫潤自然的質感，搭配簡約俐落的牆面設計，牆面展示與收納機能整合，讓原本空間展現出更明亮、整潔且富有層次的效果。",
+            "image_url": "/uploads/yujun/67e63cee64654e20a7500fe41611cc9b.png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2bff6913-8fa7-4d11-8fa8-4ab67d65fb78",
+      "type": "related_services",
+      "data": {
+        "heading": "相關服務"
+      }
+    },
+    {
+      "id": "1f90976c-f16b-4084-8c55-246e6f57e60a",
+      "type": "case_links",
+      "data": {
+        "heading": "其他實績",
+        "sub": "More Projects",
+        "style": "list",
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

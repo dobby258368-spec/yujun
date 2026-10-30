@@ -1,0 +1,34 @@
+{
+  "sort_order": 21,
+  "is_published": true,
+  "meta": null,
+  "slug": "contact",
+  "title": "聯絡我們",
+  "seo_title": "聯絡我們｜預約桃園室內裝潢諮詢｜宥涒室內裝潢",
+  "seo_description": "預約宥涒室內裝潢諮詢：電話 0952-656-256、LINE 私訊，地址桃園市桃園區大興路290巷7號4樓。服務桃園、中壢及周邊地區。",
+  "content": [
+    {
+      "id": "95dbadee-48c4-49fd-bba6-e2e685116684",
+      "type": "page_title",
+      "data": {
+        "title": "聯絡我們",
+        "sub": "Contact",
+        "align": "center",
+        "lead": "新成屋、中古屋、老屋翻修，有任何裝修想法都歡迎聊聊。\n說明房屋所在地區與大致需求，我們會再與您約時間討論。"
+      }
+    },
+    {
+      "id": "4e1a4f44-335f-4860-b31a-08332fd1d3a4",
+      "type": "contact_panel",
+      "data": {
+        "checklist_title": "諮詢前可以準備的資料",
+        "checklist": [
+          "房屋坪數與格局圖（沒有也沒關係）",
+          "現況照片",
+          "喜歡的風格參考圖",
+          "大概的預算範圍與預計入住時間"
+        ]
+      }
+    }
+  ]
+}

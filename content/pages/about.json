@@ -1,0 +1,79 @@
+{
+  "sort_order": 1,
+  "is_published": true,
+  "meta": null,
+  "slug": "about",
+  "title": "關於宥涒",
+  "seo_title": "關於宥涒室內裝潢｜桃園室內裝修統包團隊",
+  "seo_description": "宥涒室內裝潢是深耕大桃園地區的室內裝修統包團隊，提供室內裝潢、老屋翻修、新成屋裝潢、中古屋裝修、系統櫃安裝與室內設計諮詢。從空間規劃、材質挑選到施工細節，重視基礎工程與進度回報，服務桃園、中壢及周邊地區。",
+  "content": [
+    {
+      "id": "5375bea1-c557-4d6e-a15e-01dfc780358b",
+      "type": "hero_slider",
+      "data": {
+        "title": "關於宥涒室內裝潢",
+        "subtitle": "用心築造，讓家更有質感",
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/c43c63ee483141cea9623b06ec1a0d53.png",
+            "alt": "宥涒室內裝潢 完工客廳"
+          },
+          {
+            "image_url": "/uploads/yujun/64032842f36b48f4a6a6624f08c053cb.png",
+            "alt": "宥涒室內裝潢 餐廚空間"
+          }
+        ]
+      }
+    },
+    {
+      "id": "20344aeb-aabc-43af-9bfa-6e1eae577bfa",
+      "type": "intro",
+      "data": {
+        "text": "家，不只是居住的空間，更是承載幸福與生活品味的所在。從空間規劃、材質挑選到施工細節，我們用心傾聽每一份需求，以專業與細膩的工藝，將理想化為真實。讓美感與實用完美融合，為每個角落注入溫度，打造舒適、耐看又貼近生活的理想居所。"
+      }
+    },
+    {
+      "id": "04331370-10a2-4960-a041-f2dccd8049e6",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "重視看不見的基礎工程",
+            "body": "好的裝修不只要有漂亮的成果，更要重視看不見的基礎工程。從施工規劃到每個細節的落實，堅持做好該做的工序。",
+            "image_url": "/uploads/yujun/1251c6f8c0d84591b0dd2a67ec298783.png"
+          },
+          {
+            "heading": "溝通清楚，過程透明",
+            "body": "報價前先說明施工項目與內容，每個階段都與屋主確認後再進行；施工期間透過照片與進度回報，讓裝修過程安心、結果放心。",
+            "image_url": "/uploads/yujun/2752554eed1a4fd9a08afff32a313020.png"
+          },
+          {
+            "heading": "從生活需求出發",
+            "body": "好的空間設計，不只是好看的照片，而是每天回到家都覺得舒服。兼顧美感與實用，依照每個家的條件，規劃最適合的空間配置。",
+            "image_url": "/uploads/yujun/f5266cb3b649429c9de3da2e7a2ef376.png"
+          },
+          {
+            "heading": "整合工班，一個窗口",
+            "body": "深耕大桃園地區的統包工程團隊，整合各類專業工班，協助您統籌施工流程、掌握工程品質，有問題只需要找一個窗口。",
+            "image_url": "/uploads/yujun/b6d0c11001684d13231de8a46a6dce7e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "f649a697-b848-4a75-825b-2c4a218ef24d",
+      "type": "company_info",
+      "data": {
+        "heading": "公司資訊",
+        "sub": "Company"
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "sort_order": 9,
+  "is_published": true,
+  "meta": {
+    "short": "室內設計諮詢",
+    "en": "Design Consultation",
+    "hero": "/uploads/yujun/e132884781e4d450202b8225371317b9.jpg",
+    "summary": "桃園室內設計諮詢，宥涒室內裝潢陪您從需求開始討論。我們會先了解您的生活習慣、喜好風格與預算，再提出實際可行的空間規劃與施工建議，讓設計好看也做得出來。新成屋、中古屋、老屋翻修，有任何裝修想法都歡迎聊聊。"
+  },
+  "slug": "services/design-consultation",
+  "title": "桃園室內設計諮詢",
+  "seo_title": "桃園室內設計諮詢｜先聊需求，再談設計｜宥涒室內裝潢",
+  "seo_description": "桃園室內設計諮詢，宥涒室內裝潢陪您從需求開始討論！了解生活習慣、喜好風格與預算，提出實際可行的空間規劃與施工建議。新成屋、中古屋、老屋翻修都歡迎洽詢。服務桃園、中壢。",
+  "content": [
+    {
+      "id": "0fbb9dbd-d447-471a-9b72-48076422cda9",
+      "type": "hero_slider",
+      "data": {
+        "title": "桃園室內設計諮詢",
+        "subtitle": "先聊需求，再談設計。",
+        "cta": {
+          "label": "預約諮詢",
+          "href": "/contact/"
+        },
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/e132884781e4d450202b8225371317b9.jpg",
+            "alt": "桃園室內設計諮詢"
+          },
+          {
+            "image_url": "/uploads/yujun/34fb38e8c23f4df582fbf321cbf613d6.png",
+            "alt": "說出您理想中的家"
+          },
+          {
+            "image_url": "/uploads/yujun/20a96af330da2aab68e4774cc8b2d1a3.jpg",
+            "alt": "從生活習慣出發"
+          },
+          {
+            "image_url": "/uploads/yujun/b6d0c11001684d13231de8a46a6dce7e.jpg",
+            "alt": "預算與工程一起評估"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c15533d9-928b-482e-b2f3-2e507dd0e37d",
+      "type": "intro",
+      "data": {
+        "text": "桃園室內設計諮詢，宥涒室內裝潢陪您從需求開始討論。我們會先了解您的生活習慣、喜好風格與預算，再提出實際可行的空間規劃與施工建議，讓設計好看也做得出來。新成屋、中古屋、老屋翻修，有任何裝修想法都歡迎聊聊。"
+      }
+    },
+    {
+      "id": "f5eb925b-2272-445b-8b4a-d54299ec919e",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "說出您理想中的家",
+            "body": "喜歡什麼風格、家裡有幾個人、平常怎麼使用空間、有哪些困擾，先把需求說清楚，設計才會真正貼近生活。",
+            "image_url": "/uploads/yujun/34fb38e8c23f4df582fbf321cbf613d6.png"
+          },
+          {
+            "heading": "從生活習慣出發",
+            "body": "收納量、家事動線、孩子與長輩的需求，都會影響空間的配置方式。我們會依照您的生活習慣，提出實際可行的規劃建議。",
+            "image_url": "/uploads/yujun/20a96af330da2aab68e4774cc8b2d1a3.jpg"
+          },
+          {
+            "heading": "預算與工程一起評估",
+            "body": "設計不只要好看，也要做得出來。諮詢時會一併說明施工方式與工程項目，協助您在預算內安排最需要優先處理的部分。",
+            "image_url": "/uploads/yujun/b6d0c11001684d13231de8a46a6dce7e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "4dac0111-614a-4b6b-90be-9af53c952b66",
+      "type": "note",
+      "data": {
+        "heading": "諮詢前可以準備的資料",
+        "body": "・房屋坪數與格局圖（沒有也沒關係）\n・現況照片\n・喜歡的風格參考圖\n・大概的預算範圍與預計入住時間\n資料越完整，討論起來越有效率。"
+      }
+    },
+    {
+      "id": "322ead6d-98f6-4a4c-ae23-3c0f542134cc",
+      "type": "faq",
+      "data": {
+        "heading": "桃園室內設計諮詢常見問題",
+        "items": [
+          {
+            "q": "諮詢前需要準備什麼？",
+            "a": "房屋坪數與格局圖（沒有也沒關係）、現況照片、喜歡的風格參考圖，以及大概的預算範圍與預計入住時間。資料越完整，討論起來越有效率。"
+          },
+          {
+            "q": "預算有限也可以諮詢嗎？",
+            "a": "可以。諮詢時會一併說明施工方式與工程項目，協助您在預算內安排最需要優先處理的部分。"
+          },
+          {
+            "q": "怎麼預約諮詢？",
+            "a": "可以撥打電話或加 LINE 私訊，說明房屋所在地區與大致需求，我們會再與您約時間討論。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e2a4b9fb-4e48-4248-9e4e-65b8a08c87ea",
+      "type": "related_reading",
+      "data": {
+        "heading": "延伸閱讀",
+        "sub": "Read More"
+      }
+    },
+    {
+      "id": "053b3ce9-e40a-4e86-b5ea-7430f56ce828",
+      "type": "service_links",
+      "data": {
+        "heading": "其他服務",
+        "sub": "Services",
+        "columns": 3,
+        "max_width": 900,
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

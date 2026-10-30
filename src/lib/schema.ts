@@ -1,38 +1,38 @@
 // JSON-LD 結構化資料
-import { SITE, WORK_ITEMS } from "../data/site";
-import type { Faq, Service } from "../data/services";
+import type { Faq } from "@/blocks/types";
+import type { Site } from "@/lib/site";
 
 const abs = (site: URL, path: string) => new URL(path, site).href;
 
-export function business(site: URL, logo?: string) {
+export function business(site: URL, s: Site, logo?: string) {
   return {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "@id": abs(site, "/#business"),
-    name: SITE.name,
-    description: SITE.description,
+    name: s.name,
+    description: s.description,
     url: abs(site, "/"),
-    telephone: SITE.phoneIntl,
+    telephone: s.phoneIntl,
     ...(logo ? { image: logo } : {}),
     address: {
       "@type": "PostalAddress",
-      streetAddress: SITE.address.street,
-      addressLocality: SITE.address.locality,
-      addressRegion: SITE.address.region,
-      addressCountry: SITE.address.country,
+      streetAddress: s.address.street,
+      addressLocality: s.address.locality,
+      addressRegion: s.address.region,
+      addressCountry: s.address.country,
     },
-    areaServed: SITE.areaServed.map((name) => ({ "@type": "City", name })),
-    sameAs: [SITE.facebook, SITE.line],
-    knowsAbout: WORK_ITEMS,
+    areaServed: s.areaServed.map((name) => ({ "@type": "City", name })),
+    sameAs: [s.facebook, s.line],
+    knowsAbout: s.workItems,
   };
 }
 
-export function website(site: URL) {
+export function website(site: URL, s: Site) {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": abs(site, "/#website"),
-    name: SITE.name,
+    name: s.name,
     url: abs(site, "/"),
     inLanguage: "zh-Hant-TW",
     publisher: { "@id": abs(site, "/#business") },
@@ -64,23 +64,23 @@ export function faqPage(faqs: Faq[]) {
   };
 }
 
-export function service(site: URL, s: Service, image: string) {
+export function service(site: URL, s: Site, svc: { name: string; type: string; description: string; path: string }, image: string) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: s.keyword,
-    serviceType: s.short,
-    description: s.seoDescription,
-    url: abs(site, `/services/${s.slug}/`),
+    name: svc.name,
+    serviceType: svc.type,
+    description: svc.description,
+    url: abs(site, svc.path),
     image,
     provider: { "@id": abs(site, "/#business") },
-    areaServed: SITE.areaServed.map((name) => ({ "@type": "City", name })),
+    areaServed: s.areaServed.map((name) => ({ "@type": "City", name })),
   };
 }
 
 export function article(
   site: URL,
-  a: { title: string; description: string; slug: string; published: string; updated: string },
+  a: { title: string; description: string; path: string; published: string; updated: string },
   image: string,
 ) {
   return {
@@ -88,13 +88,13 @@ export function article(
     "@type": "Article",
     headline: a.title,
     description: a.description,
-    url: abs(site, `/blog/${a.slug}/`),
+    url: abs(site, a.path),
     image,
     datePublished: a.published,
     dateModified: a.updated,
     inLanguage: "zh-Hant-TW",
     author: { "@id": abs(site, "/#business") },
     publisher: { "@id": abs(site, "/#business") },
-    mainEntityOfPage: abs(site, `/blog/${a.slug}/`),
+    mainEntityOfPage: abs(site, a.path),
   };
 }

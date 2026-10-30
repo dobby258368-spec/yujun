@@ -1,0 +1,96 @@
+{
+  "sort_order": 16,
+  "is_published": true,
+  "meta": {
+    "type": "住宅裝修",
+    "cover": "/uploads/yujun/34fb38e8c23f4df582fbf321cbf613d6.png",
+    "summary": "以溫潤的木質色調搭配淺色系櫃體，營造明亮、舒適又耐看的居家氛圍。系統櫃提升收納機能，黑框玻璃隔間讓空間保有通透感與層次。",
+    "services": [
+      "system-cabinets",
+      "space-design",
+      "turnkey"
+    ]
+  },
+  "slug": "cases/wood-tone-home",
+  "title": "溫潤木質調住宅",
+  "seo_title": "溫潤木質調住宅｜住宅裝修實績｜宥涒室內裝潢",
+  "seo_description": "以溫潤的木質色調搭配淺色系櫃體，營造明亮、舒適又耐看的居家氛圍。系統櫃提升收納機能，黑框玻璃隔間讓空間保有通透感與層次。",
+  "content": [
+    {
+      "id": "88710f97-5697-4ffc-8907-9eabfa801eb3",
+      "type": "hero_slider",
+      "data": {
+        "title": "溫潤木質調住宅",
+        "subtitle": "住宅裝修",
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/34fb38e8c23f4df582fbf321cbf613d6.png",
+            "alt": "溫潤木質調住宅・空間規劃亮點"
+          },
+          {
+            "image_url": "/uploads/yujun/64032842f36b48f4a6a6624f08c053cb.png",
+            "alt": "溫潤木質調住宅・通透的玻璃隔間"
+          },
+          {
+            "image_url": "/uploads/yujun/279256c7d6964e2ebc25cd623fbf39e2.png",
+            "alt": "溫潤木質調住宅・明亮舒適的客廳"
+          }
+        ]
+      }
+    },
+    {
+      "id": "3aabdcbb-c92a-4590-89d6-386e03850676",
+      "type": "intro",
+      "data": {
+        "text": "以溫潤的木質色調搭配淺色系櫃體，營造明亮、舒適又耐看的居家氛圍。系統櫃提升收納機能，黑框玻璃隔間讓空間保有通透感與層次。"
+      }
+    },
+    {
+      "id": "0f36fd66-a9cd-4c57-840a-24f824c89dc0",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "空間規劃亮點",
+            "body": "系統櫃體設計，提升收納機能；開放式展示層架，兼具美感與實用性；電視牆與收納櫃整合，讓空間更加俐落。",
+            "image_url": "/uploads/yujun/34fb38e8c23f4df582fbf321cbf613d6.png"
+          },
+          {
+            "heading": "通透的玻璃隔間",
+            "body": "黑框玻璃隔間讓空間保有通透感與層次，木質地板搭配暖色燈光，增添居家溫度。",
+            "image_url": "/uploads/yujun/64032842f36b48f4a6a6624f08c053cb.png"
+          },
+          {
+            "heading": "明亮舒適的客廳",
+            "body": "簡約米白牆面搭配溫潤木質地板，再以灰藍色窗簾點綴，營造明亮、舒適又有質感的居家空間。",
+            "image_url": "/uploads/yujun/279256c7d6964e2ebc25cd623fbf39e2.png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e3436858-a296-4ecb-bb99-8c54346369cf",
+      "type": "related_services",
+      "data": {
+        "heading": "相關服務"
+      }
+    },
+    {
+      "id": "7a77e6dc-2828-4636-bf98-5ef363c946bd",
+      "type": "case_links",
+      "data": {
+        "heading": "其他實績",
+        "sub": "More Projects",
+        "style": "list",
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

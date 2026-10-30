@@ -1,0 +1,61 @@
+{
+  "sort_order": 13,
+  "is_published": true,
+  "meta": null,
+  "slug": "cases",
+  "title": "工程實績",
+  "seo_title": "工程實績｜桃園老屋翻修、室內裝潢案例｜宥涒室內裝潢",
+  "seo_description": "宥涒室內裝潢工程實績：32 年老屋大改造、躍層住宅客廳翻新、溫潤木質調住宅，以及老屋翻修的拆除、防水與管線施工紀錄。",
+  "content": [
+    {
+      "id": "a47f62de-f4aa-4e18-b144-2413bb16ccb6",
+      "type": "hero_slider",
+      "data": {
+        "title": "工程實績",
+        "subtitle": "記錄每一個家的改變",
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/1aa27b04310744c4a346ae3bd63f6052.jpg",
+            "alt": "32 年老屋大改造"
+          },
+          {
+            "image_url": "/uploads/yujun/67e63cee64654e20a7500fe41611cc9b.png",
+            "alt": "躍層住宅客廳翻新"
+          },
+          {
+            "image_url": "/uploads/yujun/34fb38e8c23f4df582fbf321cbf613d6.png",
+            "alt": "溫潤木質調住宅"
+          },
+          {
+            "image_url": "/uploads/yujun/12e5e03a10bb44679300dab48be1fbb5.png",
+            "alt": "老屋翻修施工紀錄"
+          }
+        ]
+      }
+    },
+    {
+      "id": "faf0f8e9-3184-43d6-9474-4ca06239e4bf",
+      "type": "tile_grid",
+      "data": {
+        "source": "cases",
+        "cols": 3,
+        "intro": {
+          "heading": "從老屋到新居",
+          "body": "好的裝修不只要有漂亮的成果，更要重視看不見的基礎工程。這裡記錄完工的樣貌，也記錄施工中的每一道工序。"
+        }
+      }
+    },
+    {
+      "id": "4ec84bd9-06c1-4e3e-9a2e-697faa19528d",
+      "type": "case_links",
+      "data": {
+        "style": "paragraphs"
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

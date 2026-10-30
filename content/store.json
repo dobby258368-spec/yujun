@@ -1,0 +1,76 @@
+{
+  "name": "宥涒室內裝潢",
+  "slug": "yujun",
+  "target_keywords": null,
+  "description": "宥涒室內裝潢是深耕大桃園地區的室內裝修統包團隊，提供室內裝潢、老屋翻修、新成屋裝潢、中古屋裝修、系統櫃安裝與室內設計諮詢。從空間規劃、材質挑選到施工細節，重視基礎工程與進度回報，服務桃園、中壢及周邊地區。",
+  "contact_info": {
+    "phone": "0952-656-256",
+    "address": "桃園市桃園區大興路290巷7號4樓"
+  },
+  "social_links": {
+    "line": "https://line.me/ti/p/K6dtyB0X6o",
+    "facebook": "https://www.facebook.com/profile.php?id=61562676700124"
+  },
+  "promo_blocks": null,
+  "official_website": null,
+  "press_mentions": [],
+  "site_template": "yujun",
+  "template_settings": {
+    "logo": {
+      "text": "宥涒",
+      "sub": "室內裝潢"
+    },
+    "tagline": "用心築造，讓家更有質感",
+    "phone_intl": "+886-952-656-256",
+    "address": {
+      "region": "桃園市",
+      "locality": "桃園區",
+      "street": "大興路290巷7號4樓",
+      "country": "TW"
+    },
+    "area_served": [
+      "桃園",
+      "中壢",
+      "大桃園地區"
+    ],
+    "area_text": "桃園、中壢及周邊地區",
+    "work_items": [
+      "拆除工程",
+      "水電工程",
+      "泥作與防水工程",
+      "木作工程",
+      "油漆工程",
+      "鋁門窗工程",
+      "系統櫃安裝",
+      "地板、窗簾、壁紙工程",
+      "各類室內裝修與修繕工程"
+    ],
+    "nav": [
+      {
+        "href": "/services/",
+        "label": "服務項目"
+      },
+      {
+        "href": "/cases/",
+        "label": "工程實績"
+      },
+      {
+        "href": "/process/",
+        "label": "裝修流程"
+      },
+      {
+        "href": "/blog/",
+        "label": "裝修知識"
+      },
+      {
+        "href": "/faq/",
+        "label": "常見問題"
+      },
+      {
+        "href": "/about/",
+        "label": "關於宥涒"
+      }
+    ],
+    "default_image": "/uploads/yujun/f5266cb3b649429c9de3da2e7a2ef376.png"
+  }
+}

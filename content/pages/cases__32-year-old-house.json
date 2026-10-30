@@ -1,0 +1,95 @@
+{
+  "sort_order": 14,
+  "is_published": true,
+  "meta": {
+    "type": "老屋翻修",
+    "cover": "/uploads/yujun/1aa27b04310744c4a346ae3bd63f6052.jpg",
+    "summary": "屋齡 32 年的住宅，從牆面修繕、重新粉刷，到地板更新與燈光規劃，一步步改善老舊的居家環境，讓空間告別斑駁與陳舊。",
+    "services": [
+      "old-house-renovation",
+      "interior-decoration"
+    ]
+  },
+  "slug": "cases/32-year-old-house",
+  "title": "32 年老屋大改造",
+  "seo_title": "32 年老屋大改造｜老屋翻修實績｜宥涒室內裝潢",
+  "seo_description": "屋齡 32 年的住宅，從牆面修繕、重新粉刷，到地板更新與燈光規劃，一步步改善老舊的居家環境，讓空間告別斑駁與陳舊。",
+  "content": [
+    {
+      "id": "f9de7bbf-7cb1-4788-ad18-1103c9c944a7",
+      "type": "hero_slider",
+      "data": {
+        "title": "32 年老屋大改造",
+        "subtitle": "老屋翻修",
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/2e83c9c114994cc5b835526d5b11e504.jpg",
+            "alt": "32 年老屋大改造・翻修前：老舊與斑駁"
+          },
+          {
+            "image_url": "/uploads/yujun/1aa27b04310744c4a346ae3bd63f6052.jpg",
+            "alt": "32 年老屋大改造・翻修後：協調俐落的新面貌"
+          },
+          {
+            "image_url": "/uploads/yujun/41e5c40ef4bcee360158fdc2cd1a2b96.jpg",
+            "alt": "32 年老屋大改造・動線與門片整理"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e24f502d-a9bf-4849-9d10-7bf082ef8453",
+      "type": "intro",
+      "data": {
+        "text": "屋齡 32 年的住宅，從牆面修繕、重新粉刷，到地板更新與燈光規劃，一步步改善老舊的居家環境，讓空間告別斑駁與陳舊。"
+      }
+    },
+    {
+      "id": "d27256d4-4a15-48d7-a6e4-4cb0bbb69380",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "翻修前：老舊與斑駁",
+            "body": "揮別老舊與灰塵，留下了老屋的痕跡。原本的地板、牆面與燈具都已老化，需要從基礎開始整理。",
+            "image_url": "/uploads/yujun/2e83c9c114994cc5b835526d5b11e504.jpg"
+          },
+          {
+            "heading": "翻修後：協調俐落的新面貌",
+            "body": "整體空間風格讓客廳視覺更協調，營造舒適大方的居家氛圍。規劃嵌燈與特色燈具，透過光線層次提升整體空間的質感；整理門片與細節，整體風格更加一致，展現簡約俐落的新面貌。",
+            "image_url": "/uploads/yujun/1aa27b04310744c4a346ae3bd63f6052.jpg"
+          },
+          {
+            "heading": "動線與門片整理",
+            "body": "從牆面修繕、重新粉刷到地板更新，搭配重新整理的門片與燈光，讓走道與各房間的動線更明亮清爽。",
+            "image_url": "/uploads/yujun/41e5c40ef4bcee360158fdc2cd1a2b96.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "82c78a46-24a0-4461-8c7a-ee956e014fc1",
+      "type": "related_services",
+      "data": {
+        "heading": "相關服務"
+      }
+    },
+    {
+      "id": "85f32478-cb3b-41b5-b707-22a45c4cf7f0",
+      "type": "case_links",
+      "data": {
+        "heading": "其他實績",
+        "sub": "More Projects",
+        "style": "list",
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

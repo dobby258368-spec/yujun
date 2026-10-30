@@ -1,0 +1,122 @@
+{
+  "sort_order": 17,
+  "is_published": true,
+  "meta": {
+    "type": "施工過程",
+    "cover": "/uploads/yujun/12e5e03a10bb44679300dab48be1fbb5.png",
+    "summary": "從拆除、防水、給排水管線到進度回報，記錄老屋翻修中看不見、卻最重要的基礎工程。",
+    "services": [
+      "old-house-renovation",
+      "construction-planning"
+    ]
+  },
+  "slug": "cases/old-house-construction-log",
+  "title": "老屋翻修施工紀錄",
+  "seo_title": "老屋翻修施工紀錄｜施工過程實績｜宥涒室內裝潢",
+  "seo_description": "從拆除、防水、給排水管線到進度回報，記錄老屋翻修中看不見、卻最重要的基礎工程。",
+  "content": [
+    {
+      "id": "357fb993-e3d0-498c-8a4b-4005462973dd",
+      "type": "hero_slider",
+      "data": {
+        "title": "老屋翻修施工紀錄",
+        "subtitle": "施工過程",
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/54b8f74c691b474f91e2c7093de98f99.png",
+            "alt": "老屋翻修施工紀錄・拆除與基礎整理"
+          },
+          {
+            "image_url": "/uploads/yujun/12e5e03a10bb44679300dab48be1fbb5.png",
+            "alt": "老屋翻修施工紀錄・給排水管線配置"
+          },
+          {
+            "image_url": "/uploads/yujun/1251c6f8c0d84591b0dd2a67ec298783.png",
+            "alt": "老屋翻修施工紀錄・防水工程施作"
+          },
+          {
+            "image_url": "/uploads/yujun/2752554eed1a4fd9a08afff32a313020.png",
+            "alt": "老屋翻修施工紀錄・防水層與泥作"
+          },
+          {
+            "image_url": "/uploads/yujun/3b8313afcbc44292a6bdeba4153c3773.png",
+            "alt": "老屋翻修施工紀錄・施工進度回報"
+          },
+          {
+            "image_url": "/uploads/yujun/b6d0c11001684d13231de8a46a6dce7e.jpg",
+            "alt": "老屋翻修施工紀錄・管線壓力檢查"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dd32ba3f-f213-4dc9-b500-79174fbf8d94",
+      "type": "intro",
+      "data": {
+        "text": "從拆除、防水、給排水管線到進度回報，記錄老屋翻修中看不見、卻最重要的基礎工程。"
+      }
+    },
+    {
+      "id": "e7d0642a-f575-4e80-af35-f249389bb978",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "拆除與基礎整理",
+            "body": "翻新第一步，從基礎整理開始。依照現場狀況拆除老舊裝潢與不需要的設施，讓後續工程有更完善的施工條件。",
+            "image_url": "/uploads/yujun/54b8f74c691b474f91e2c7093de98f99.png"
+          },
+          {
+            "heading": "給排水管線配置",
+            "body": "重新檢視給排水管路，依照空間需求規劃管線位置，並確認接頭與管路配置，讓日常用水更加便利，減少後續維修的困擾。",
+            "image_url": "/uploads/yujun/12e5e03a10bb44679300dab48be1fbb5.png"
+          },
+          {
+            "heading": "防水工程施作",
+            "body": "從基層整理到防水層施作，每個細節都仔細處理，降低日後滲漏水的風險，為居家環境打好基礎。",
+            "image_url": "/uploads/yujun/1251c6f8c0d84591b0dd2a67ec298783.png"
+          },
+          {
+            "heading": "防水層與泥作",
+            "body": "防水層完成後再進行泥作，每一道工序確實做好，才能進入下一個階段。",
+            "image_url": "/uploads/yujun/2752554eed1a4fd9a08afff32a313020.png"
+          },
+          {
+            "heading": "施工進度回報",
+            "body": "透過施工照片與進度回報，讓屋主即使無法親自到場，也能掌握施工狀況，清楚了解每個階段的施工內容。",
+            "image_url": "/uploads/yujun/3b8313afcbc44292a6bdeba4153c3773.png"
+          },
+          {
+            "heading": "管線壓力檢查",
+            "body": "管線配置完成後進行檢查，確認接頭與管路狀況，再進入後續封板與泥作工程。",
+            "image_url": "/uploads/yujun/b6d0c11001684d13231de8a46a6dce7e.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a5c50075-2174-4181-94e0-3061d9aab1ee",
+      "type": "related_services",
+      "data": {
+        "heading": "相關服務"
+      }
+    },
+    {
+      "id": "d2bc5eb9-d27a-49e5-833f-40c7ef04620b",
+      "type": "case_links",
+      "data": {
+        "heading": "其他實績",
+        "sub": "More Projects",
+        "style": "list",
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

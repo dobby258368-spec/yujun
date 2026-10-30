@@ -1,0 +1,128 @@
+{
+  "sort_order": 3,
+  "is_published": true,
+  "meta": {
+    "short": "室內裝潢",
+    "en": "Interior Decoration",
+    "hero": "/uploads/yujun/c43c63ee483141cea9623b06ec1a0d53.png",
+    "summary": "桃園室內裝潢，讓家的每個角落煥然一新。宥涒室內裝潢承接老屋翻新、新屋裝修到局部改造，從牆面粉刷、地板鋪設、天花板設計到燈光配置逐項規劃，依照您的空間條件與喜好，打造舒適、明亮又有質感的居家環境。專業施工、細心把關，讓理想中的家一步步實現。"
+  },
+  "slug": "services/interior-decoration",
+  "title": "桃園室內裝潢",
+  "seo_title": "桃園室內裝潢｜老屋翻新、新屋裝修、局部改造｜宥涒室內裝潢",
+  "seo_description": "桃園室內裝潢推薦宥涒室內裝潢！從老屋翻新、新屋裝修到局部改造，規劃牆面粉刷、地板鋪設、天花板設計與燈光配置，兼顧美感、實用與生活需求。服務桃園、中壢及周邊地區。",
+  "content": [
+    {
+      "id": "65c3277f-45da-4171-9de5-bd31b2e35998",
+      "type": "hero_slider",
+      "data": {
+        "title": "桃園室內裝潢",
+        "subtitle": "用細節成就質感，以設計實現理想。",
+        "cta": {
+          "label": "預約諮詢",
+          "href": "/contact/"
+        },
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/c43c63ee483141cea9623b06ec1a0d53.png",
+            "alt": "桃園室內裝潢"
+          },
+          {
+            "image_url": "/uploads/yujun/342bfdeb2bd3441f8f03066b129315cb.png",
+            "alt": "客廳翻新前"
+          },
+          {
+            "image_url": "/uploads/yujun/67e63cee64654e20a7500fe41611cc9b.png",
+            "alt": "客廳完成後"
+          },
+          {
+            "image_url": "/uploads/yujun/2e83c9c114994cc5b835526d5b11e504.jpg",
+            "alt": "32 年老屋大改造"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d650d50e-e719-4012-b4c8-9623c5fc5306",
+      "type": "intro",
+      "data": {
+        "text": "桃園室內裝潢，讓家的每個角落煥然一新。宥涒室內裝潢承接老屋翻新、新屋裝修到局部改造，從牆面粉刷、地板鋪設、天花板設計到燈光配置逐項規劃，依照您的空間條件與喜好，打造舒適、明亮又有質感的居家環境。專業施工、細心把關，讓理想中的家一步步實現。"
+      }
+    },
+    {
+      "id": "9c859a37-de3f-4434-b703-dc4568cdc69b",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "客廳翻新前",
+            "body": "房屋經過長時間使用，出現天花板老舊、室內採光不均、牆面劣化及收納空間不足問題。具有特殊躍層結構的住宅，更需要仔細評估空間配置與生活動線。",
+            "image_url": "/uploads/yujun/342bfdeb2bd3441f8f03066b129315cb.png"
+          },
+          {
+            "heading": "客廳完成後",
+            "body": "天花板設計、照明配置、木地板鋪設，牆面展示與收納機能整合，讓原本空間展現出更明亮、整潔且富有層次的效果。天花板重新規劃嵌燈配置，讓室內光線更加均勻柔和；木地板則為空間增添溫潤自然的質感，搭配簡約俐落的牆面設計。",
+            "image_url": "/uploads/yujun/67e63cee64654e20a7500fe41611cc9b.png"
+          },
+          {
+            "heading": "32 年老屋大改造",
+            "body": "揮別老舊與灰塵，留下了老屋的痕跡。從牆面修繕、重新粉刷，到地板更新與燈光規劃，一步步改善原本老舊的居家環境，讓空間告別斑駁與陳舊。",
+            "image_url": "/uploads/yujun/2e83c9c114994cc5b835526d5b11e504.jpg"
+          },
+          {
+            "heading": "老屋翻新實錄",
+            "body": "整體空間風格，讓客廳視覺更協調，營造舒適大方的居家氛圍。規劃嵌燈與特色燈具，透過光線層次提升整體空間的質感；整理門片與細節，整體風格更加一致，展現簡約俐落的新面貌。",
+            "image_url": "/uploads/yujun/1aa27b04310744c4a346ae3bd63f6052.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ee16e5f7-e471-4ea1-8992-e1dac41cb325",
+      "type": "faq",
+      "data": {
+        "heading": "桃園室內裝潢常見問題",
+        "items": [
+          {
+            "q": "桃園室內裝潢包含哪些項目？",
+            "a": "宥涒室內裝潢可承接拆除、水電、泥作與防水、木作、油漆、鋁門窗、系統櫃，以及地板、窗簾、壁紙等工程，也能只做局部改造，例如客廳天花板、燈光與地板翻新。"
+          },
+          {
+            "q": "只想翻新客廳或局部空間可以嗎？",
+            "a": "可以。我們會先到現場確認屋況與需求，再依照您的預算與優先順序，提出局部改造或分階段施工的建議。"
+          },
+          {
+            "q": "服務範圍在哪裡？",
+            "a": "以桃園、中壢及周邊地區為主，其他地區歡迎來電或私訊 LINE 詢問。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e1acb985-c8a6-4c31-85e7-f2ef5a6d263b",
+      "type": "related_reading",
+      "data": {
+        "heading": "延伸閱讀",
+        "sub": "Read More"
+      }
+    },
+    {
+      "id": "eb968ebe-bb19-4e25-ac1c-e91be5a9d69b",
+      "type": "service_links",
+      "data": {
+        "heading": "其他服務",
+        "sub": "Services",
+        "columns": 3,
+        "max_width": 900,
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

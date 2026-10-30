@@ -1,0 +1,128 @@
+{
+  "sort_order": 10,
+  "is_published": true,
+  "meta": {
+    "short": "裝潢工程規劃",
+    "en": "Construction Planning",
+    "hero": "/uploads/yujun/ad6b01f531adf60a1dbcd413bc23e62a.jpg",
+    "summary": "桃園裝潢工程規劃，好的規劃是品質的開始。裝潢工程涉及拆除、水電、泥作防水、木作、油漆、系統櫃與燈具等多個環節，宥涒室內裝潢依照正確工序安排施工，減少重工與等待，讓工期與品質都更好掌握，施工進度也會定期回報。"
+  },
+  "slug": "services/construction-planning",
+  "title": "桃園裝潢工程規劃",
+  "seo_title": "桃園裝潢工程規劃｜工序安排與施工流程｜宥涒室內裝潢",
+  "seo_description": "桃園裝潢工程規劃找宥涒室內裝潢！從拆除、水電、泥作防水、木作、油漆到系統櫃安裝，依照正確工序安排施工，減少重工與等待，工期與品質都更好掌握。服務桃園、中壢。",
+  "content": [
+    {
+      "id": "bb17f982-f5b5-42ea-add5-828c9693ba1a",
+      "type": "hero_slider",
+      "data": {
+        "title": "桃園裝潢工程規劃",
+        "subtitle": "工序排得好，工程才會順。",
+        "cta": {
+          "label": "預約諮詢",
+          "href": "/contact/"
+        },
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/ad6b01f531adf60a1dbcd413bc23e62a.jpg",
+            "alt": "桃園裝潢工程規劃"
+          },
+          {
+            "image_url": "/uploads/yujun/e060a53842c5aa4d59ebfec39917d18a.jpg",
+            "alt": "工序安排有先後"
+          },
+          {
+            "image_url": "/uploads/yujun/e02248e4d4fa6637b8a2cd730874327b.jpg",
+            "alt": "拆除與水電配置"
+          },
+          {
+            "image_url": "/uploads/yujun/ea45749bd7b18d491e5f502079405813.jpg",
+            "alt": "泥作與防水"
+          }
+        ]
+      }
+    },
+    {
+      "id": "45021b50-c8cb-4662-87de-2fade8807c45",
+      "type": "intro",
+      "data": {
+        "text": "桃園裝潢工程規劃，好的規劃是品質的開始。裝潢工程涉及拆除、水電、泥作防水、木作、油漆、系統櫃與燈具等多個環節，宥涒室內裝潢依照正確工序安排施工，減少重工與等待，讓工期與品質都更好掌握，施工進度也會定期回報。"
+      }
+    },
+    {
+      "id": "707faf67-7d3c-42f1-a68d-c64e85671cd1",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "工序安排有先後",
+            "body": "拆除 → 水電 → 泥作與防水 → 木作 → 油漆 → 系統櫃與燈具。依照正確順序施工，減少重工與等待，工期也更好掌握。",
+            "image_url": "/uploads/yujun/e060a53842c5aa4d59ebfec39917d18a.jpg"
+          },
+          {
+            "heading": "拆除與水電配置",
+            "body": "拆除前先確認保留與移除的項目，水電依照新的格局與家電位置重新配置；插座、開關與管線一次規劃好，入住後用起來才順手。",
+            "image_url": "/uploads/yujun/e02248e4d4fa6637b8a2cd730874327b.jpg"
+          },
+          {
+            "heading": "泥作與防水",
+            "body": "浴室、陽台與外牆是防水重點。從基層處理到防水層施作，每個步驟都要確實做好，才能降低日後滲漏水的風險。",
+            "image_url": "/uploads/yujun/ea45749bd7b18d491e5f502079405813.jpg"
+          },
+          {
+            "heading": "木作與系統櫃收尾",
+            "body": "天花板、櫃體與牆面造型在後段進場，尺寸配合前面的工程確認，細節收邊整齊，讓整體空間呈現完整的質感。",
+            "image_url": "/uploads/yujun/20a96af330da2aab68e4774cc8b2d1a3.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ac597ea6-6c2c-439d-97b1-d65fcf874835",
+      "type": "faq",
+      "data": {
+        "heading": "桃園裝潢工程規劃常見問題",
+        "items": [
+          {
+            "q": "裝潢工程的施工順序是什麼？",
+            "a": "一般依序為拆除、水電、泥作與防水、木作、油漆，最後安裝系統櫃與燈具。實際順序會依房屋類型、設計內容與現場狀況調整。"
+          },
+          {
+            "q": "為什麼水電要在前面確認？",
+            "a": "水電配置應在裝修面層施工前確認，避免完工後才發現插座不足、設備位置不合適或管線需要重新調整。"
+          },
+          {
+            "q": "裝潢預算可以怎麼分配？",
+            "a": "可以先分成基礎工程（拆除、水電、防水、泥作）、裝修工程（木作、系統櫃、油漆、地板）、設備與家具，以及設計與管理費用，再區分必要工程與選配項目。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5b0e9afd-16b4-4f42-b817-fbc86e410b8e",
+      "type": "related_reading",
+      "data": {
+        "heading": "延伸閱讀",
+        "sub": "Read More"
+      }
+    },
+    {
+      "id": "6a913379-2b3e-4ddb-9693-68182c153d0a",
+      "type": "service_links",
+      "data": {
+        "heading": "其他服務",
+        "sub": "Services",
+        "columns": 3,
+        "max_width": 900,
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

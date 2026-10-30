@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { SITE, NAV } from "@/data/site";
+import type { Site } from "@/lib/site";
 
-export default function SiteHeader() {
+export default function SiteHeader({ site }: { site: Site }) {
   const pathname = usePathname();
   const path = pathname.endsWith("/") ? pathname : `${pathname}/`;
   // 記住在哪一頁打開選單，換頁後自動收起
@@ -15,9 +15,9 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="wrap header-inner">
-        <Link className="logo" href="/" aria-label={`${SITE.name} 首頁`}>宥涒<span>室內裝潢</span></Link>
+        <Link className="logo" href="/" aria-label={`${site.name} 首頁`}>{site.logo.text}<span>{site.logo.sub}</span></Link>
         <nav className={open ? "nav is-open" : "nav"} id="nav" aria-label="主選單">
-          {NAV.map((n) => (
+          {site.nav.map((n) => (
             <Link key={n.href} href={n.href} aria-current={path.startsWith(n.href) ? "page" : undefined}>{n.label}</Link>
           ))}
           <Link href="/contact/" className="btn btn-sm">預約諮詢</Link>

@@ -1,0 +1,131 @@
+{
+  "sort_order": 12,
+  "is_published": true,
+  "meta": {
+    "short": "系統櫃安裝",
+    "en": "System Cabinets",
+    "hero": "/uploads/yujun/20a96af330da2aab68e4774cc8b2d1a3.jpg",
+    "summary": "桃園系統櫃安裝，讓收納變簡單。宥涒室內裝潢依照現場尺寸與使用需求，規劃衣櫃、鞋櫃、電視櫃、書櫃與廚房收納；安裝前確實丈量，確認牆面、地面與插座位置，系統櫃在工廠裁切後到現場組裝，施工快速、粉塵少，收邊整齊美觀，也能與木作及天花板設計整合規劃。"
+  },
+  "slug": "services/system-cabinets",
+  "title": "桃園系統櫃安裝",
+  "seo_title": "桃園系統櫃安裝｜衣櫃、鞋櫃、電視櫃量身規劃｜宥涒室內裝潢",
+  "seo_description": "桃園系統櫃安裝推薦宥涒室內裝潢！衣櫃、鞋櫃、電視櫃、書櫃與廚房收納依現場尺寸量身規劃，安裝前確實丈量，施工快速、粉塵少，收邊整齊，也能與木作及天花板整合。服務桃園、中壢。",
+  "content": [
+    {
+      "id": "12f5e6da-e2d9-4a41-b0d8-1b53f7077285",
+      "type": "hero_slider",
+      "data": {
+        "title": "桃園系統櫃安裝",
+        "subtitle": "量身規劃收納，安裝快速又整齊。",
+        "cta": {
+          "label": "預約諮詢",
+          "href": "/contact/"
+        },
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/20a96af330da2aab68e4774cc8b2d1a3.jpg",
+            "alt": "桃園系統櫃安裝"
+          },
+          {
+            "image_url": "/uploads/yujun/1a8a698d14f649b19715c741abba520d.jpg",
+            "alt": "依空間量身規劃"
+          },
+          {
+            "image_url": "/uploads/yujun/3cde25daca66482e8e394f0713598ee7.jpg",
+            "alt": "現場丈量與確認"
+          },
+          {
+            "image_url": "/uploads/yujun/1342964c606e4ebabc1e0d2d0e797728.jpg",
+            "alt": "安裝與收邊"
+          }
+        ]
+      }
+    },
+    {
+      "id": "002956a0-9fed-4964-94a3-6166d15a46cb",
+      "type": "intro",
+      "data": {
+        "text": "桃園系統櫃安裝，讓收納變簡單。宥涒室內裝潢依照現場尺寸與使用需求，規劃衣櫃、鞋櫃、電視櫃、書櫃與廚房收納；安裝前確實丈量，確認牆面、地面與插座位置，系統櫃在工廠裁切後到現場組裝，施工快速、粉塵少，收邊整齊美觀，也能與木作及天花板設計整合規劃。"
+      }
+    },
+    {
+      "id": "d9a72ed4-5936-4db6-902b-32ebd9990930",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "依空間量身規劃",
+            "body": "衣櫃、鞋櫃、電視櫃、書櫃、廚房收納，依照現場尺寸與使用需求規劃櫃體大小與內部配置，每個角落都能好好利用。",
+            "image_url": "/uploads/yujun/1a8a698d14f649b19715c741abba520d.jpg"
+          },
+          {
+            "heading": "現場丈量與確認",
+            "body": "安裝前先到現場丈量，確認牆面、地面與插座位置，避免櫃體與管線、開關衝突，讓安裝過程更順利。",
+            "image_url": "/uploads/yujun/3cde25daca66482e8e394f0713598ee7.jpg"
+          },
+          {
+            "heading": "安裝與收邊",
+            "body": "系統櫃在工廠裁切後到現場組裝，施工時間短、粉塵少；安裝時注意水平與收邊細節，完成後整齊美觀。",
+            "image_url": "/uploads/yujun/1342964c606e4ebabc1e0d2d0e797728.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "4613b8f9-2eb3-4a95-985f-bb510de54c88",
+      "type": "note",
+      "data": {
+        "heading": "系統櫃的優點",
+        "body": "・工廠裁切，尺寸精準\n・現場組裝，施工快速\n・板材與門片款式多樣，可搭配不同風格\n・可與木作、天花板設計整合規劃"
+      }
+    },
+    {
+      "id": "5f1ab7c5-7f5f-49cc-8763-53fe393f7030",
+      "type": "faq",
+      "data": {
+        "heading": "桃園系統櫃安裝常見問題",
+        "items": [
+          {
+            "q": "系統櫃和木作櫃怎麼選？",
+            "a": "系統櫃在工廠裁切、現場組裝，尺寸精準、施工快速、粉塵少；木作則較能配合特殊造型。兩者也可以整合規劃，例如天花板與牆面造型用木作、收納櫃體用系統櫃。"
+          },
+          {
+            "q": "系統櫃安裝前要注意什麼？",
+            "a": "安裝前應到現場丈量，確認牆面、地面與插座位置，避免櫃體與管線、開關衝突。"
+          },
+          {
+            "q": "可以做哪些櫃體？",
+            "a": "常見有玄關鞋櫃、客廳電視櫃、臥室衣櫃、書櫃、餐邊櫃與廚房收納，都會依照空間尺寸與使用需求規劃。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "42d06540-8175-4306-aac9-a09e542122c4",
+      "type": "related_reading",
+      "data": {
+        "heading": "延伸閱讀",
+        "sub": "Read More"
+      }
+    },
+    {
+      "id": "b5c0c61d-ed53-4291-bbe3-fb50cbc6842c",
+      "type": "service_links",
+      "data": {
+        "heading": "其他服務",
+        "sub": "Services",
+        "columns": 3,
+        "max_width": 900,
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

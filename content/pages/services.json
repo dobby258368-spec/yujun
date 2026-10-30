@@ -1,0 +1,78 @@
+{
+  "sort_order": 2,
+  "is_published": true,
+  "meta": null,
+  "slug": "services",
+  "title": "服務項目",
+  "seo_title": "服務項目｜桃園室內裝潢、統包、老屋翻修、系統櫃｜宥涒室內裝潢",
+  "seo_description": "宥涒室內裝潢服務項目：桃園室內裝潢、老屋翻修、室內裝修、裝潢統包、新成屋裝潢、中古屋裝修、室內設計諮詢、裝潢工程規劃、空間設計與系統櫃安裝。",
+  "content": [
+    {
+      "id": "e9562836-e342-47b1-bc24-901be4b76def",
+      "type": "hero_slider",
+      "data": {
+        "title": "服務項目",
+        "subtitle": "一個窗口，從設計到完工全程搞定",
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/c43c63ee483141cea9623b06ec1a0d53.png",
+            "alt": "桃園室內裝潢"
+          },
+          {
+            "image_url": "/uploads/yujun/cfe893f692274bf4a4b99cc4982076b4.jpg",
+            "alt": "桃園老屋翻修"
+          },
+          {
+            "image_url": "/uploads/yujun/0bc41e4d21046770014d971471b3086f.jpg",
+            "alt": "桃園推薦室內裝修"
+          },
+          {
+            "image_url": "/uploads/yujun/e060a53842c5aa4d59ebfec39917d18a.jpg",
+            "alt": "桃園室內裝潢統包"
+          },
+          {
+            "image_url": "/uploads/yujun/f5266cb3b649429c9de3da2e7a2ef376.png",
+            "alt": "桃園新成屋裝潢"
+          }
+        ]
+      }
+    },
+    {
+      "id": "4cd79663-2ed6-4838-807b-0b5f284ab6b7",
+      "type": "intro",
+      "data": {
+        "text": "從設計規劃到拆除工程、水電工程、泥作與防水工程、木作工程、油漆工程、鋁門窗工程，宥涒室內裝潢整合各類專業工班，服務桃園、中壢及周邊地區。點選各項服務了解細節。"
+      }
+    },
+    {
+      "id": "f1991bcc-f0b6-4395-9584-2e8f4ab6858b",
+      "type": "mosaic",
+      "data": {
+        "source": "services",
+        "numbered": true,
+        "heading_level": "h2"
+      }
+    },
+    {
+      "id": "dc603f45-2c0b-4311-b7a7-51e8aba32441",
+      "type": "note",
+      "data": {
+        "heading": "找不到您需要的項目？",
+        "body": "各類室內裝修與修繕工程都歡迎詢問，說明房屋所在地區與大致需求，我們會再與您討論。"
+      }
+    },
+    {
+      "id": "84047a5e-897a-4136-81a6-f1f517a7b10e",
+      "type": "service_links",
+      "data": {
+        "columns": 2,
+        "max_width": 720
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

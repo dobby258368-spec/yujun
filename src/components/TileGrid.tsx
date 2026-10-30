@@ -1,14 +1,15 @@
 // 無邊圖片磚：可點擊的圖片零間距排列，可在開頭穿插一塊白底說明文字
 import Link from "next/link";
-import Image from "next/image";
-import { img } from "@/lib/images";
+import Img from "@/components/Img";
+
+export type Tile = { image: string; title: string; sub?: string; href: string };
 
 export default function TileGrid({
   items,
   intro,
   cols = 4,
 }: {
-  items: { image: string; title: string; sub?: string; href: string }[];
+  items: Tile[];
   intro?: { heading: string; body: string; href?: string; link?: string };
   cols?: 3 | 4;
 }) {
@@ -23,7 +24,7 @@ export default function TileGrid({
       )}
       {items.map((t) => (
         <Link key={t.href} className="tile" href={t.href}>
-          <Image src={img(t.image)} alt={t.title} sizes={`(max-width: 640px) 50vw, ${Math.round(100 / cols)}vw`} />
+          <Img src={t.image} alt={t.title} sizes={`(max-width: 640px) 50vw, ${Math.round(100 / cols)}vw`} />
           <span className="tile-label">
             <strong>{t.title}</strong>
             {t.sub && <small>{t.sub}</small>}

@@ -3,8 +3,7 @@
 // 主視覺幻燈片：高度為畫面的 0.5 倍。第一張優先載入（LCP），其餘延遲載入
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { img } from "@/lib/images";
+import Img from "@/components/Img";
 
 export default function HeroSlider({
   slides,
@@ -12,7 +11,7 @@ export default function HeroSlider({
   subtitle,
   cta,
 }: {
-  slides: { image: string; alt: string }[];
+  slides: { image_url: string; alt: string }[];
   title: string;
   subtitle?: string;
   cta?: { href: string; label: string };
@@ -37,9 +36,9 @@ export default function HeroSlider({
     <section className="hero" aria-roledescription="carousel" aria-label="主視覺">
       <div className="slides">
         {slides.map((s, i) => (
-          <div key={s.image} className={i === current ? "slide is-active" : "slide"} aria-hidden={i === current ? undefined : "true"}>
-            <Image
-              src={img(s.image)}
+          <div key={i} className={i === current ? "slide is-active" : "slide"} aria-hidden={i === current ? undefined : "true"}>
+            <Img
+              src={s.image_url}
               alt={s.alt}
               sizes="100vw"
               loading={i === 0 ? "eager" : "lazy"}
@@ -58,8 +57,8 @@ export default function HeroSlider({
           <button className="slide-nav prev" aria-label="上一張" onClick={() => go(current - 1)}>‹</button>
           <button className="slide-nav next" aria-label="下一張" onClick={() => go(current + 1)}>›</button>
           <div className="dots">
-            {slides.map((s, i) => (
-              <button key={s.image} aria-label={`第 ${i + 1} 張`} className={i === current ? "is-active" : undefined} onClick={() => go(i)} />
+            {slides.map((_, i) => (
+              <button key={i} aria-label={`第 ${i + 1} 張`} className={i === current ? "is-active" : undefined} onClick={() => go(i)} />
             ))}
           </div>
         </>

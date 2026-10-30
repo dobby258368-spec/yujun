@@ -1,0 +1,175 @@
+{
+  "sort_order": 0,
+  "is_published": true,
+  "meta": null,
+  "slug": "home",
+  "title": "首頁",
+  "seo_title": "桃園室內裝潢推薦｜統包・老屋翻修・系統櫃｜宥涒室內裝潢",
+  "seo_description": "宥涒室內裝潢是深耕大桃園地區的室內裝修統包團隊，提供室內裝潢、老屋翻修、新成屋裝潢、中古屋裝修、系統櫃安裝與室內設計諮詢。從空間規劃、材質挑選到施工細節，重視基礎工程與進度回報，服務桃園、中壢及周邊地區。",
+  "content": [
+    {
+      "id": "6026e359-d076-4fa3-b083-6763f936d07c",
+      "type": "hero_slider",
+      "data": {
+        "title": "桃園室內裝潢｜宥涒室內裝潢",
+        "subtitle": "用心築造，讓家更有質感",
+        "cta": {
+          "label": "預約諮詢",
+          "href": "/contact/"
+        },
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/f5266cb3b649429c9de3da2e7a2ef376.png",
+            "alt": "宥涒室內裝潢 木質調客廳"
+          },
+          {
+            "image_url": "/uploads/yujun/34fb38e8c23f4df582fbf321cbf613d6.png",
+            "alt": "系統櫃與電視牆整合的客廳"
+          },
+          {
+            "image_url": "/uploads/yujun/c43c63ee483141cea9623b06ec1a0d53.png",
+            "alt": "明亮的客廳與收納櫃"
+          },
+          {
+            "image_url": "/uploads/yujun/279256c7d6964e2ebc25cd623fbf39e2.png",
+            "alt": "米白牆面搭配木質地板的住宅"
+          },
+          {
+            "image_url": "/uploads/yujun/eca80ba1799547f1a1c7f516afa2e1bc.png",
+            "alt": "採光充足的新成屋客廳"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d213098d-a591-4f8a-8510-34e50b24230a",
+      "type": "intro",
+      "data": {
+        "heading": "家，不只是居住的空間",
+        "sub": "About",
+        "text": "宥涒室內裝潢是深耕大桃園地區的室內裝修統包團隊。從空間規劃、材質挑選到施工細節，我們用心傾聽每一份需求，以專業與細膩的工藝將理想化為真實，讓美感與實用完美融合，打造舒適、耐看又貼近生活的理想居所。"
+      }
+    },
+    {
+      "id": "7b111b77-78cc-44df-a632-9a2bfe32f409",
+      "type": "tile_grid",
+      "data": {
+        "source": "services",
+        "limit": 7,
+        "cols": 4,
+        "intro": {
+          "heading": "服務項目",
+          "body": "新成屋、中古屋、老屋翻修到系統櫃安裝，一個窗口整合設計與施工。",
+          "href": "/services/",
+          "link": "全部服務"
+        }
+      }
+    },
+    {
+      "id": "1e0dccc1-64e6-4e09-bbcd-e0c7820d1b84",
+      "type": "mosaic",
+      "data": {
+        "heading": "我們做的事",
+        "sub": "What We Do",
+        "heading_level": "h3",
+        "numbered": true,
+        "items": [
+          {
+            "heading": "桃園室內裝潢統包",
+            "body": "從拆除到完工，每一道工序都用心把關。我們是深耕大桃園地區的統包工程團隊，整合各類專業工班，協助您統籌施工流程、掌握工程品質，讓裝修大小事都能更有效率地安排。",
+            "image_url": "/uploads/yujun/64032842f36b48f4a6a6624f08c053cb.png"
+          },
+          {
+            "heading": "室內設計",
+            "body": "以溫潤的木質色調搭配淺色系櫃體，營造明亮、舒適又耐看的居家氛圍。系統櫃體提升收納機能，電視牆與收納櫃整合，黑框玻璃隔間讓空間保有通透感與層次。",
+            "image_url": "/uploads/yujun/34fb38e8c23f4df582fbf321cbf613d6.png"
+          },
+          {
+            "heading": "住宅裝修",
+            "body": "簡約米白牆面搭配溫潤木質地板，再以灰藍色窗簾點綴，營造明亮、舒適又有質感的居家空間。",
+            "image_url": "/uploads/yujun/279256c7d6964e2ebc25cd623fbf39e2.png"
+          },
+          {
+            "heading": "空間規劃",
+            "body": "舒服的空間，藏著對生活的講究。從色彩搭配、家具配置，到每一處細節的呈現，讓美感自然融入日常，讓回家成為每天最期待的事。",
+            "image_url": "/uploads/yujun/feaf9d93b6614a52a5f80527f038761b.png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5fa185d6-38dd-49e1-958b-31b6c7ab1448",
+      "type": "note",
+      "data": {
+        "heading": "統包可承接的工程項目",
+        "body": "拆除工程・水電工程・泥作與防水工程・木作工程・油漆工程・鋁門窗工程・系統櫃安裝・地板、窗簾、壁紙工程・各類室內裝修與修繕工程"
+      }
+    },
+    {
+      "id": "ca6a3182-29c7-42a5-8245-8acca81b5c44",
+      "type": "tile_grid",
+      "data": {
+        "heading": "工程實績",
+        "sub": "Projects",
+        "background": "alt",
+        "source": "cases",
+        "cols": 4,
+        "intro": {
+          "heading": "從老屋到新居",
+          "body": "記錄每一個家的改變，也記錄看不見的基礎工程。",
+          "href": "/cases/",
+          "link": "看全部實績"
+        }
+      }
+    },
+    {
+      "id": "51eb9082-f08f-462c-8946-0bc76cc8a0d0",
+      "type": "steps",
+      "data": {
+        "heading": "裝修流程",
+        "sub": "Process",
+        "items": [
+          "現場丈量",
+          "需求討論",
+          "設計規劃與報價",
+          "確認後開工",
+          "施工進度回報",
+          "完工驗收"
+        ],
+        "link": {
+          "label": "了解完整流程與工序",
+          "href": "/process/"
+        }
+      }
+    },
+    {
+      "id": "d1a4be60-f1e9-434d-97b9-04564df77389",
+      "type": "post_list",
+      "data": {
+        "heading": "裝修知識",
+        "sub": "Articles",
+        "heading_tag": "h2",
+        "background": "alt",
+        "limit": 3,
+        "more": {
+          "label": "更多文章",
+          "href": "/blog/"
+        }
+      }
+    },
+    {
+      "id": "b74d200c-85a3-4699-a511-cb5fc6b977b2",
+      "type": "faq",
+      "data": {
+        "heading": "常見問題",
+        "from": "faq",
+        "limit": 5
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

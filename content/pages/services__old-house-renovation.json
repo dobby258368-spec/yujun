@@ -1,0 +1,136 @@
+{
+  "sort_order": 4,
+  "is_published": true,
+  "meta": {
+    "short": "老屋翻修",
+    "en": "Old House Renovation",
+    "hero": "/uploads/yujun/cfe893f692274bf4a4b99cc4982076b4.jpg",
+    "summary": "桃園老屋翻修不只是改變外觀，更是重新打造理想的生活空間。宥涒室內裝潢重視看不見的基礎工程，從老舊管線更新、浴室防水、牆面修補到泥作施工，逐步改善老屋問題，兼顧美觀、實用與居住安全；施工期間以照片與進度回報，讓翻修過程透明、品質看得見。"
+  },
+  "slug": "services/old-house-renovation",
+  "title": "桃園老屋翻修",
+  "seo_title": "桃園老屋翻修｜管線更新、浴室防水、泥作修補｜宥涒室內裝潢",
+  "seo_description": "桃園老屋翻修推薦宥涒室內裝潢！從老舊管線更新、浴室防水、牆面修補到泥作施工，重視基礎工程與進度回報，兼顧美觀、實用與居住安全。服務桃園、中壢。",
+  "content": [
+    {
+      "id": "17c8f446-31ef-44c8-bdaa-6de42eb3e263",
+      "type": "hero_slider",
+      "data": {
+        "title": "桃園老屋翻修",
+        "subtitle": "告別老舊，重現家的價值。",
+        "cta": {
+          "label": "預約諮詢",
+          "href": "/contact/"
+        },
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/cfe893f692274bf4a4b99cc4982076b4.jpg",
+            "alt": "桃園老屋翻修"
+          },
+          {
+            "image_url": "/uploads/yujun/54b8f74c691b474f91e2c7093de98f99.png",
+            "alt": "翻新第一步：拆除與基礎整理"
+          },
+          {
+            "image_url": "/uploads/yujun/1251c6f8c0d84591b0dd2a67ec298783.png",
+            "alt": "防水工程施作"
+          },
+          {
+            "image_url": "/uploads/yujun/12e5e03a10bb44679300dab48be1fbb5.png",
+            "alt": "給排水管線配置"
+          }
+        ]
+      }
+    },
+    {
+      "id": "417e7cce-a432-4b56-9114-17034ab264fa",
+      "type": "intro",
+      "data": {
+        "text": "桃園老屋翻修不只是改變外觀，更是重新打造理想的生活空間。宥涒室內裝潢重視看不見的基礎工程，從老舊管線更新、浴室防水、牆面修補到泥作施工，逐步改善老屋問題，兼顧美觀、實用與居住安全；施工期間以照片與進度回報，讓翻修過程透明、品質看得見。"
+      }
+    },
+    {
+      "id": "32ac0fbc-ff76-4879-b6fc-78609c6c267d",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "翻新第一步：拆除與基礎整理",
+            "body": "依照現場狀況拆除老舊裝潢與不需要的設施，讓後續工程有更完善的施工條件。拆除前先確認保留與移除的項目，避免不必要的破壞。",
+            "image_url": "/uploads/yujun/54b8f74c691b474f91e2c7093de98f99.png"
+          },
+          {
+            "heading": "防水工程施作",
+            "body": "防水是老屋翻新的重要環節。從基層整理到防水層施作，每個細節都需要仔細處理，降低日後滲漏水的風險，為居家環境打好基礎。",
+            "image_url": "/uploads/yujun/1251c6f8c0d84591b0dd2a67ec298783.png"
+          },
+          {
+            "heading": "給排水管線配置",
+            "body": "重新檢視給排水管路，依照空間需求規劃管線位置，並確認接頭與管路配置，讓日常用水更加便利，減少後續維修的困擾。",
+            "image_url": "/uploads/yujun/12e5e03a10bb44679300dab48be1fbb5.png"
+          },
+          {
+            "heading": "施工進度回報",
+            "body": "每個工程階段都值得被重視。透過施工照片與進度回報，讓屋主即使無法親自到場，也能掌握施工狀況，清楚了解每個階段的施工內容。",
+            "image_url": "/uploads/yujun/2752554eed1a4fd9a08afff32a313020.png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cb69b926-98e9-4cec-8abb-cdaa5315f0aa",
+      "type": "note",
+      "data": {
+        "heading": "我們的堅持",
+        "body": "好的裝修不只要有漂亮的成果，更要重視看不見的基礎工程。從施工規劃到每個細節的落實，堅持做好該做的工序，為每個家庭打造更安心、舒適的居住空間。"
+      }
+    },
+    {
+      "id": "94fbe323-d7aa-47bc-b49c-655c1f61b019",
+      "type": "faq",
+      "data": {
+        "heading": "桃園老屋翻修常見問題",
+        "items": [
+          {
+            "q": "老屋翻修一定要更新水電管線嗎？",
+            "a": "屋齡較高的房子，水電管線多半已經老化。建議趁翻修時先檢查既有線路與管材，再決定是否更新，降低漏水與用電的安全疑慮，也省去日後再拆再修的麻煩。"
+          },
+          {
+            "q": "老屋浴室為什麼要重做防水？",
+            "a": "浴室長期接觸水氣，舊有防水層可能已經劣化。從基層整理到防水層施作確實處理，才能降低日後滲漏水的風險。"
+          },
+          {
+            "q": "施工期間我沒辦法常到現場怎麼辦？",
+            "a": "我們會透過施工照片與進度回報，讓您即使無法親自到場，也能掌握每個階段的施工狀況。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "4d2d885f-16a9-48d7-a1ae-cbea0593c3e7",
+      "type": "related_reading",
+      "data": {
+        "heading": "延伸閱讀",
+        "sub": "Read More"
+      }
+    },
+    {
+      "id": "adf42bd4-534e-4916-a7a1-dee84ca9d8ab",
+      "type": "service_links",
+      "data": {
+        "heading": "其他服務",
+        "sub": "Services",
+        "columns": 3,
+        "max_width": 900,
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

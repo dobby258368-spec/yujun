@@ -1,36 +1,31 @@
 // 無邊圖片拼接：圖片與白底文字塊零間距交錯。
 // 桌機一列兩組（4 格），奇數列左右對調形成棋盤格；平板一列一組、逐組對調；手機圖上文下
 import Link from "next/link";
-import Image from "next/image";
-import { img } from "@/lib/images";
-import type { Block } from "@/data/services";
+import Img from "@/components/Img";
+import type { MosaicItem } from "@/blocks/types";
 
 export default function Mosaic({
-  blocks,
+  items,
   numbered = true,
   headingLevel = "h2",
 }: {
-  blocks: Block[];
+  items: MosaicItem[];
   numbered?: boolean;
   headingLevel?: "h2" | "h3";
 }) {
   const H = headingLevel;
-  const lastAlone = blocks.length % 2 === 1;
+  const lastAlone = items.length % 2 === 1;
   return (
     <div className="mosaic">
-      {blocks.map((b, i) => {
+      {items.map((b, i) => {
         const cls = ["m-pair"];
         if (Math.floor(i / 2) % 2 === 1) cls.push("rev-desk");
         if (i % 2 === 1) cls.push("rev-tab");
-        if (lastAlone && i === blocks.length - 1) cls.push("full");
+        if (lastAlone && i === items.length - 1) cls.push("full");
         return (
           <div key={i} className={cls.join(" ")}>
             <figure className="m-img">
-              <Image
-                src={img(b.image)}
-                alt={b.heading}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-              />
+              <Img src={b.image_url} alt={b.heading} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
             </figure>
             <div className="m-text">
               {numbered && <span className="m-no">{String(i + 1).padStart(2, "0")}</span>}

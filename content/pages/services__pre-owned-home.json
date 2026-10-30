@@ -1,0 +1,128 @@
+{
+  "sort_order": 8,
+  "is_published": true,
+  "meta": {
+    "short": "中古屋裝修",
+    "en": "Pre-owned Home",
+    "hero": "/uploads/yujun/41e5c40ef4bcee360158fdc2cd1a2b96.jpg",
+    "summary": "桃園舊中古屋裝修，買了中古屋就從整修開始。管線老化、壁癌、滲漏水、格局不合現代生活與採光不足，都是中古屋常見的狀況。宥涒室內裝潢在裝修前先完整檢查，再從管線更新、防水處理到格局調整與整體翻新，確實做好基礎工程，讓中古屋住起來就像新家。"
+  },
+  "slug": "services/pre-owned-home",
+  "title": "桃園舊中古屋裝修",
+  "seo_title": "桃園舊中古屋裝修｜壁癌、漏水、管線老化處理｜宥涒室內裝潢",
+  "seo_description": "桃園舊中古屋裝修推薦宥涒室內裝潢！針對管線老化、壁癌、滲漏水、採光不足等常見問題，從檢查、管線更新、防水處理到格局調整與整體翻新，確實做好基礎工程。服務桃園、中壢。",
+  "content": [
+    {
+      "id": "9365a3a7-7796-4b1c-bf84-3b02e6b7b666",
+      "type": "hero_slider",
+      "data": {
+        "title": "桃園舊中古屋裝修",
+        "subtitle": "找回房子的價值，住得安心又舒適。",
+        "cta": {
+          "label": "預約諮詢",
+          "href": "/contact/"
+        },
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/41e5c40ef4bcee360158fdc2cd1a2b96.jpg",
+            "alt": "桃園舊中古屋裝修"
+          },
+          {
+            "image_url": "/uploads/yujun/4dce66f1a1ef73f2b3326f9c0c33d434.jpg",
+            "alt": "中古屋的常見問題"
+          },
+          {
+            "image_url": "/uploads/yujun/e02248e4d4fa6637b8a2cd730874327b.jpg",
+            "alt": "管線更新不能省"
+          },
+          {
+            "image_url": "/uploads/yujun/ea45749bd7b18d491e5f502079405813.jpg",
+            "alt": "壁癌與防水處理"
+          }
+        ]
+      }
+    },
+    {
+      "id": "3ebb5d48-44b3-4a29-870d-80dec8df1887",
+      "type": "intro",
+      "data": {
+        "text": "桃園舊中古屋裝修，買了中古屋就從整修開始。管線老化、壁癌、滲漏水、格局不合現代生活與採光不足，都是中古屋常見的狀況。宥涒室內裝潢在裝修前先完整檢查，再從管線更新、防水處理到格局調整與整體翻新，確實做好基礎工程，讓中古屋住起來就像新家。"
+      }
+    },
+    {
+      "id": "b160974e-37a5-4716-885a-9ceee558b3a6",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "中古屋的常見問題",
+            "body": "管線老化、壁癌、滲漏水，格局不合現代生活、採光不足，都是中古屋常見的狀況。裝修前先完整檢查，才能對症處理。",
+            "image_url": "/uploads/yujun/4dce66f1a1ef73f2b3326f9c0c33d434.jpg"
+          },
+          {
+            "heading": "管線更新不能省",
+            "body": "屋齡較高的房子，水電管線多半已經老化。趁裝修時一併更新，降低漏水與用電的安全疑慮，也省去日後再拆再修的麻煩。",
+            "image_url": "/uploads/yujun/e02248e4d4fa6637b8a2cd730874327b.jpg"
+          },
+          {
+            "heading": "壁癌與防水處理",
+            "body": "壁癌與滲水要先找出原因，從基層整理、防水施作到牆面修補，確實處理每一個步驟，牆面才不會反覆出問題。",
+            "image_url": "/uploads/yujun/ea45749bd7b18d491e5f502079405813.jpg"
+          },
+          {
+            "heading": "格局調整與翻新",
+            "body": "依照家庭成員重新思考空間配置，改善採光與通風，搭配地板、燈光與牆面翻新，讓中古屋住起來就像新家。",
+            "image_url": "/uploads/yujun/aef4648894e84787be24bc26d81e9679.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "443f92a7-6237-4a7a-a4cc-4cf77c173965",
+      "type": "faq",
+      "data": {
+        "heading": "桃園舊中古屋裝修常見問題",
+        "items": [
+          {
+            "q": "中古屋裝修前要先檢查什麼？",
+            "a": "建議先檢查水電管線、壁癌與滲漏水狀況、門窗與磁磚，以及格局與採光是否符合需求。完整檢查後才能對症處理，避免裝修完才發現問題。"
+          },
+          {
+            "q": "壁癌刷油漆就好了嗎？",
+            "a": "壁癌與滲水要先找出原因，從基層整理、防水施作到牆面修補確實處理，只刷油漆容易反覆出現。"
+          },
+          {
+            "q": "中古屋可以調整格局嗎？",
+            "a": "可以依照家庭成員重新思考空間配置，改善採光與通風；涉及結構或公共管線的部分，會先確認可行性再進行。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "95a0f642-d3d8-44d1-b622-60a4e69c9a0d",
+      "type": "related_reading",
+      "data": {
+        "heading": "延伸閱讀",
+        "sub": "Read More"
+      }
+    },
+    {
+      "id": "69788c5c-516c-409d-a003-cebacb7efc48",
+      "type": "service_links",
+      "data": {
+        "heading": "其他服務",
+        "sub": "Services",
+        "columns": 3,
+        "max_width": 900,
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}

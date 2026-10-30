@@ -1,0 +1,136 @@
+{
+  "sort_order": 6,
+  "is_published": true,
+  "meta": {
+    "short": "裝潢統包",
+    "en": "Turnkey Project",
+    "hero": "/uploads/yujun/e060a53842c5aa4d59ebfec39917d18a.jpg",
+    "summary": "桃園室內裝潢統包，讓裝修更省心。宥涒室內裝潢是深耕大桃園地區的統包工程團隊，整合各類專業工班，協助您統籌施工流程、掌握工程品質；從設計規劃、拆除、水電、泥作、木作、系統櫃到油漆，一個窗口整合所有工程，不必自己協調多組師傅。"
+  },
+  "slug": "services/turnkey",
+  "title": "桃園室內裝潢統包",
+  "seo_title": "桃園室內裝潢統包｜一個窗口整合所有工程｜宥涒室內裝潢",
+  "seo_description": "桃園室內裝潢統包推薦宥涒室內裝潢！從設計規劃、拆除、水電、泥作、木作、系統櫃到油漆，一個窗口整合所有工程，施工進度定期回報，完工逐項檢查後交屋。服務桃園、中壢。",
+  "content": [
+    {
+      "id": "8835ea03-a5c3-40aa-a738-4e01ec725855",
+      "type": "hero_slider",
+      "data": {
+        "title": "桃園室內裝潢統包",
+        "subtitle": "一個窗口，從設計到完工全程搞定。",
+        "cta": {
+          "label": "預約諮詢",
+          "href": "/contact/"
+        },
+        "slides": [
+          {
+            "image_url": "/uploads/yujun/e060a53842c5aa4d59ebfec39917d18a.jpg",
+            "alt": "桃園室內裝潢統包"
+          },
+          {
+            "image_url": "/uploads/yujun/b6d0c11001684d13231de8a46a6dce7e.jpg",
+            "alt": "統包是什麼？"
+          },
+          {
+            "image_url": "/uploads/yujun/ad6b01f531adf60a1dbcd413bc23e62a.jpg",
+            "alt": "水電泥作基礎工程"
+          },
+          {
+            "image_url": "/uploads/yujun/20a96af330da2aab68e4774cc8b2d1a3.jpg",
+            "alt": "木作與系統櫃整合"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c5b6b9b4-2695-4822-b935-184a91c0a721",
+      "type": "intro",
+      "data": {
+        "text": "桃園室內裝潢統包，讓裝修更省心。宥涒室內裝潢是深耕大桃園地區的統包工程團隊，整合各類專業工班，協助您統籌施工流程、掌握工程品質；從設計規劃、拆除、水電、泥作、木作、系統櫃到油漆，一個窗口整合所有工程，不必自己協調多組師傅。"
+      }
+    },
+    {
+      "id": "8bc94737-b69b-434a-b2d6-69afcc5846cd",
+      "type": "mosaic",
+      "data": {
+        "numbered": true,
+        "heading_level": "h2",
+        "items": [
+          {
+            "heading": "統包是什麼？",
+            "body": "統包就是把設計、拆除、水電、泥作、木作、油漆等工程交給同一個團隊負責。不用自己找各個師傅、協調工期，有問題也只需要找一個窗口。",
+            "image_url": "/uploads/yujun/b6d0c11001684d13231de8a46a6dce7e.jpg"
+          },
+          {
+            "heading": "水電泥作基礎工程",
+            "body": "管線配置、防水與泥作是房子的根本。統包團隊會在前期就安排好施工順序，避免工種之間互相等待或重工，讓工程進度更穩定。",
+            "image_url": "/uploads/yujun/ad6b01f531adf60a1dbcd413bc23e62a.jpg"
+          },
+          {
+            "heading": "木作與系統櫃整合",
+            "body": "櫃體、天花板與牆面造型一起規劃，尺寸與材質在設計階段就先確認，現場施工更順利，完成後的風格也更一致。",
+            "image_url": "/uploads/yujun/20a96af330da2aab68e4774cc8b2d1a3.jpg"
+          },
+          {
+            "heading": "從開工到交屋",
+            "body": "施工期間持續回報進度，完工後與屋主一起逐項檢查，確認細節都到位才交屋，讓您安心入住新家。",
+            "image_url": "/uploads/yujun/0bc41e4d21046770014d971471b3086f.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e137d6f3-97e4-416d-b436-346748390d21",
+      "type": "note",
+      "data": {
+        "heading": "統包可承接的工程項目",
+        "body": "拆除工程・水電工程・泥作與防水工程・木作工程・油漆工程・鋁門窗工程・系統櫃安裝・地板、窗簾、壁紙工程・各類室內裝修與修繕工程"
+      }
+    },
+    {
+      "id": "a818cfa3-0f7b-445f-8087-dbc23d3ddc2e",
+      "type": "faq",
+      "data": {
+        "heading": "桃園室內裝潢統包常見問題",
+        "items": [
+          {
+            "q": "統包和自己找工班有什麼差別？",
+            "a": "自己找工班需要分別聯繫各個師傅、協調工期與施工順序；統包由同一個團隊負責整合，有問題只需要找一個窗口，也能避免工種之間互相等待或重工。"
+          },
+          {
+            "q": "統包包含設計嗎？",
+            "a": "包含設計規劃。櫃體、天花板與牆面造型會在設計階段一起規劃，尺寸與材質先確認，現場施工更順利。"
+          },
+          {
+            "q": "完工後怎麼交屋？",
+            "a": "完工後會與屋主一起逐項檢查，確認細節都到位才交屋。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "f2232f0e-95ff-44d9-b225-b37afa7fe8f1",
+      "type": "related_reading",
+      "data": {
+        "heading": "延伸閱讀",
+        "sub": "Read More"
+      }
+    },
+    {
+      "id": "5ed4d9f0-0e4c-44bf-82b8-50c7edf8ef42",
+      "type": "service_links",
+      "data": {
+        "heading": "其他服務",
+        "sub": "Services",
+        "columns": 3,
+        "max_width": 900,
+        "exclude_current": true
+      }
+    },
+    {
+      "id": "140f8270-1bfc-4dac-954a-357c39535a9f",
+      "type": "contact_cta",
+      "data": {}
+    }
+  ]
+}
