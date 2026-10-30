@@ -1,13 +1,14 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { cache } from "react";
+import { connection } from "next/server";
 import { validateBlocks } from "@/blocks/registry";
 import type { Page, Post, Store } from "@/content/types";
 
 // 內容讀取層。函式介面對齊 GEO 前台的 frontend/src/lib/store-data.ts，
 // 用 CONTENT_SOURCE 切換來源：
 // - local（預設）：讀專案內 content/ 的 JSON，建置時就產生靜態頁
-// - api：讀 GEO 公開 API，快取 60 秒並掛上 storeTag，GEO 儲存後打 /api/revalidate 立即失效
+// - api：讀 GEO 公開 API，快取 60 秒並掛上 storeTag，GEO 儲存後打 /api/revalidate/ 立即失效
 
 const SOURCE = process.env.CONTENT_SOURCE === "api" ? "api" : "local";
 const API_URL = process.env.GEO_API_URL || "http://backend:8000";
@@ -16,6 +17,17 @@ const CONTENT_DIR = path.join(process.cwd(), "content");
 export const STORE_SLUG = process.env.STORE_SLUG || "yujun";
 export const REVALIDATE_SECONDS = 60;
 export const storeTag = (storeSlug: string) => `store:${storeSlug}`;
+
+/** 建置時是否預先產生頁面。api 模式建置時（docker build）連不到 GEO，頁面改在第一次請求時產生並快取 */
+export const PRERENDER = SOURCE === "local";
+
+/**
+ * api 模式建置時讓呼叫的頁面跳過預先產生（layout、sitemap、llms.txt 都要呼叫）。
+ * 只在建置階段生效：執行時 [...slug] 等頁面照常第一次請求時產生、快取，GEO 存檔後由 /api/revalidate/ 失效
+ */
+export async function skipPrerenderInApiBuild() {
+  if (!PRERENDER && process.env.NEXT_PHASE === "phase-production-build") await connection();
+}
 
 async function readJson<T>(file: string): Promise<T> {
   return JSON.parse(await fs.readFile(path.join(CONTENT_DIR, file), "utf8"));

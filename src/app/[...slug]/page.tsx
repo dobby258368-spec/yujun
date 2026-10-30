@@ -1,9 +1,10 @@
 import PageView, { pageMetadata } from "@/components/PageView";
-import { STORE_SLUG, getStorePages } from "@/lib/content";
+import { PRERENDER, STORE_SLUG, getStorePages } from "@/lib/content";
 
 type Params = { params: Promise<{ slug: string[] }> };
 
 export async function generateStaticParams() {
+  if (!PRERENDER) return [];
   const pages = await getStorePages(STORE_SLUG);
   return pages.filter((p) => p.slug !== "home").map((p) => ({ slug: p.slug.split("/") }));
 }

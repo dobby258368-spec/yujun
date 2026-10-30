@@ -3,7 +3,7 @@ import "@/styles/global.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import JsonLd from "@/components/JsonLd";
-import { STORE_SLUG, getStore, getStorePages } from "@/lib/content";
+import { STORE_SLUG, getStore, getStorePages, skipPrerenderInApiBuild } from "@/lib/content";
 import { business, website } from "@/lib/schema";
 import { SITE_URL, ogImageUrl } from "@/lib/seo";
 import { isServicePage, siteOf } from "@/lib/site";
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  await skipPrerenderInApiBuild();
   const [store, pages] = await Promise.all([getStore(STORE_SLUG), getStorePages(STORE_SLUG)]);
   if (!store) throw new Error(`找不到品牌資料：${STORE_SLUG}`);
   const site = siteOf(store);

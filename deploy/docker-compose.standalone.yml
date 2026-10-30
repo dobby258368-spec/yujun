@@ -1,0 +1,30 @@
+# 範例：獨立 VM。web 讀 GEO 的公開 API（經網際網路），GEO 存檔後帶 secret 呼叫 /api/revalidate/
+services:
+  web:
+    build:
+      context: ..
+      args:
+        SITE_URL: https://yujun.example.com
+        CONTENT_SOURCE: api
+        NEXT_PUBLIC_GEO_PUBLIC_URL: https://geoseo-service.com
+    container_name: yujun_web
+    restart: always
+    environment:
+      CONTENT_SOURCE: api
+      GEO_API_URL: https://geoseo-service.com
+      STORE_SLUG: yujun
+      REVALIDATE_SECRET: ${REVALIDATE_SECRET}
+
+  nginx:
+    image: nginx:alpine
+    container_name: yujun_nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.standalone.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
+    depends_on:
+      - web

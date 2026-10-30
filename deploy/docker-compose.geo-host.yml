@@ -1,0 +1,19 @@
+# 範例：放在 GEO 正式機時，要合併進 GEO-Saas/docker-compose.prod.yml 的服務（定案前不要套用）
+services:
+  yujun_web:
+    build:
+      context: ../yujun-interior   # 依實際放置位置調整
+      args:
+        SITE_URL: https://yujun.example.com
+        CONTENT_SOURCE: api
+        NEXT_PUBLIC_GEO_PUBLIC_URL: https://geoseo-service.com
+    container_name: geo_yujun_web
+    restart: always
+    environment:
+      CONTENT_SOURCE: api
+      GEO_API_URL: http://backend:8000
+      STORE_SLUG: yujun
+    depends_on:
+      - backend
+
+# GEO 的 nginx 也要掛上新網域的憑證路徑（已掛 /etc/letsencrypt 則不必改）

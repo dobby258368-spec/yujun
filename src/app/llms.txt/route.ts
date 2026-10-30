@@ -1,4 +1,4 @@
-import { STORE_SLUG, getStore, getStorePages, getStorePosts, pagePath } from "@/lib/content";
+import { STORE_SLUG, getStore, getStorePages, getStorePosts, pagePath, skipPrerenderInApiBuild } from "@/lib/content";
 import { SITE_URL } from "@/lib/seo";
 import { isCasePage, isServicePage, siteOf } from "@/lib/site";
 
@@ -6,6 +6,7 @@ export const revalidate = 60;
 
 // 給 AI 搜尋 / LLM 讀的網站摘要（llms.txt）
 export async function GET() {
+  await skipPrerenderInApiBuild();
   const [store, pages, posts] = await Promise.all([getStore(STORE_SLUG), getStorePages(STORE_SLUG), getStorePosts(STORE_SLUG)]);
   if (!store) return new Response("Not found", { status: 404 });
   const site = siteOf(store);

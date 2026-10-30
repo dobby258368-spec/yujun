@@ -5,9 +5,9 @@ import { imageUrl } from "@/lib/image";
 // canonical、sitemap、OG、JSON-LD 的網址都從這裡產生
 export const SITE_URL = new URL(process.env.SITE_URL || "https://example.com");
 
-// OG 圖：寬 1200，交給 next/image 縮圖
+// OG 圖：寬 1200，交給 next/image 縮圖。trailingSlash 開啟時 /_next/image 會先 308 轉址，所以直接帶斜線
 export function ogImageUrl(src: string) {
-  const path = `/_next/image?url=${encodeURIComponent(imageUrl(src))}&w=1200&q=75`;
+  const path = `/_next/image/?url=${encodeURIComponent(imageUrl(src))}&w=1200&q=75`;
   return new URL(path, SITE_URL).href;
 }
 

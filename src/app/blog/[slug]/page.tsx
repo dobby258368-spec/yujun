@@ -4,7 +4,7 @@ import ContactCta from "@/components/ContactCta";
 import Crumbs from "@/components/Crumbs";
 import Img from "@/components/Img";
 import JsonLd from "@/components/JsonLd";
-import { STORE_SLUG, getStore, getStorePage, getStorePost, getStorePosts, pagePath } from "@/lib/content";
+import { PRERENDER, STORE_SLUG, getStore, getStorePage, getStorePost, getStorePosts, pagePath } from "@/lib/content";
 import { article } from "@/lib/schema";
 import { SITE_URL, ogImageUrl, pageMeta } from "@/lib/seo";
 import { siteOf } from "@/lib/site";
@@ -12,6 +12,7 @@ import { siteOf } from "@/lib/site";
 type Params = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
+  if (!PRERENDER) return [];
   const posts = await getStorePosts(STORE_SLUG);
   return posts.map((p) => ({ slug: p.slug }));
 }
