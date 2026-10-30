@@ -1,0 +1,2 @@
+geo/patches/*.patch -text
+geo/*.sh text eol=lf
