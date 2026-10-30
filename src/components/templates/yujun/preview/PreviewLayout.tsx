@@ -53,9 +53,9 @@ function PreviewFrame({ draft, originalSlug }: Omit<PreviewLayoutProps, "childre
     return () => ro.disconnect();
   }, []);
 
-  // 用實際寬度渲染，再等比縮小放進預覽欄
+  // 用實際寬度渲染，再等比縮小放進預覽欄。視窗窄於 1280px 時預覽欄隱藏、量到的寬度是 0，不能拿來算比例
   const width = WIDTHS[device];
-  const scale = Math.min(1, size.width / width);
+  const scale = size.width > 0 ? Math.min(1, size.width / width) : 1;
 
   return (
     <div className="h-full flex flex-col">
