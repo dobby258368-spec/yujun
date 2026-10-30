@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* 只給開發用編輯器使用；前台（(site) route group）有自己的根 layout，不會載入這個檔案 */
+:root {
+  --background: #f8fafc; /* Slate 50 */
+  --foreground: #1e293b; /* Slate 800 */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", ui-sans-serif, system-ui, sans-serif;
+}

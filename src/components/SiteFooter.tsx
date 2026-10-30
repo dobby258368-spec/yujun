@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { pagePath } from "@/lib/content";
-import type { ServicePage, Site } from "@/lib/site";
+import { pagePath, type ServicePage, type Site } from "@/lib/site";
 
 export default function SiteFooter({ site, services }: { site: Site; services: ServicePage[] }) {
   return (

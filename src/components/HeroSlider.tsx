@@ -16,19 +16,21 @@ export default function HeroSlider({
   subtitle?: string;
   cta?: { href: string; label: string };
 }) {
-  const [current, setCurrent] = useState(0);
+  const [index, setIndex] = useState(0);
   // 手動切換時遞增，讓自動輪播重新計時
   const [restart, setRestart] = useState(0);
   const count = slides.length;
+  // 編輯器預覽時輪播圖可能被刪減，索引要落在範圍內
+  const current = count ? index % count : 0;
 
   useEffect(() => {
     if (count < 2 || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setCurrent((c) => (c + 1) % count), 5000);
+    const timer = window.setInterval(() => setIndex((c) => (c + 1) % count), 5000);
     return () => clearInterval(timer);
   }, [count, restart]);
 
   const go = (i: number) => {
-    setCurrent((i + count) % count);
+    setIndex((i + count) % count);
     setRestart((r) => r + 1);
   };
 

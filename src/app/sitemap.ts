@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
-import { STORE_SLUG, getStorePages, getStorePosts, pagePath, skipPrerenderInApiBuild } from "@/lib/content";
+import { STORE_SLUG, getStorePages, getStorePosts, skipPrerenderInApiBuild } from "@/lib/content";
 import { SITE_URL } from "@/lib/seo";
+import { pagePath } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   await skipPrerenderInApiBuild();

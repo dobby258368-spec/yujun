@@ -8,8 +8,8 @@ import TileGrid, { type Tile } from "@/components/TileGrid";
 import FaqList from "@/components/FaqList";
 import ContactCta from "@/components/ContactCta";
 import Img from "@/components/Img";
-import { pagePath } from "@/lib/content";
-import { isCasePage, isServicePage, serviceKey, type Site } from "@/lib/site";
+
+import { pagePath, isCasePage, isServicePage, serviceKey, type Site } from "@/lib/site";
 import type { Page, Post } from "@/content/types";
 import type { Block, BlockData, Faq, MosaicItem } from "./types";
 

@@ -43,7 +43,7 @@ async function getJson<T>(storeSlug: string, apiPath: string): Promise<T | null>
 }
 
 function assertValid(page: Page) {
-  const errors = validateBlocks(page.content, `pages/${page.slug}`);
+  const errors = validateBlocks(page.content, `pages/${page.slug} `);
   if (errors.length) throw new Error(`內容格式錯誤：\n${errors.join("\n")}`);
 }
 
@@ -98,5 +98,3 @@ export const getStorePosts = cache(async (storeSlug: string): Promise<Post[]> =>
   return posts.sort((a, b) => b.created_at.localeCompare(a.created_at));
 });
 
-// 網址路徑 ↔ 頁面 slug：/ 對應 home，/services/turnkey/ 對應 services/turnkey
-export const pagePath = (slug: string) => (slug === "home" ? "/" : `/${slug}/`);

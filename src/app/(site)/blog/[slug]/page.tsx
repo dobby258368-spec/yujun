@@ -4,10 +4,10 @@ import ContactCta from "@/components/ContactCta";
 import Crumbs from "@/components/Crumbs";
 import Img from "@/components/Img";
 import JsonLd from "@/components/JsonLd";
-import { PRERENDER, STORE_SLUG, getStore, getStorePage, getStorePost, getStorePosts, pagePath } from "@/lib/content";
+import { PRERENDER, STORE_SLUG, getStore, getStorePage, getStorePost, getStorePosts } from "@/lib/content";
 import { article } from "@/lib/schema";
 import { SITE_URL, ogImageUrl, pageMeta } from "@/lib/seo";
-import { siteOf } from "@/lib/site";
+import { pagePath, siteOf } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
 

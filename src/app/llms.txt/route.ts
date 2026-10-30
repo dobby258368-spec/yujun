@@ -1,6 +1,6 @@
-import { STORE_SLUG, getStore, getStorePages, getStorePosts, pagePath, skipPrerenderInApiBuild } from "@/lib/content";
+import { STORE_SLUG, getStore, getStorePages, getStorePosts, skipPrerenderInApiBuild } from "@/lib/content";
 import { SITE_URL } from "@/lib/seo";
-import { isCasePage, isServicePage, siteOf } from "@/lib/site";
+import { pagePath, isCasePage, isServicePage, siteOf } from "@/lib/site";
 
 export const revalidate = 60;
 

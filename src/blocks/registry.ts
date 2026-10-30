@@ -9,7 +9,9 @@ export type Field =
   | { key: string; label: string; type: "link"; required?: boolean }
   | { key: string; label: string; type: "strings"; required?: boolean }
   | { key: string; label: string; type: "list"; fields: Field[]; required?: boolean }
-  | { key: string; label: string; type: "object"; fields: Field[]; required?: boolean };
+  | { key: string; label: string; type: "object"; fields: Field[]; required?: boolean }
+  /** 從服務頁中勾選，存成服務代號（slug 去掉 services/）清單 */
+  | { key: string; label: string; type: "service_keys"; required?: boolean };
 
 export interface BlockDef<K extends BlockType = BlockType> {
   label: string;
@@ -206,13 +208,13 @@ export const BLOCKS: { [K in BlockType]: BlockDef<K> } = {
   },
 };
 
-// ── 驗證：依欄位定義檢查型別與必填，回傳錯誤訊息（空陣列表示通過）
+// ── 驗證：依欄位定義檢查型別與必填，回傳給編輯者看的錯誤訊息（空陣列表示通過）
 
 function checkFields(fields: Field[], data: Record<string, unknown>, at: string): string[] {
   const errors: string[] = [];
   for (const f of fields) {
     const v = data[f.key];
-    const where = `${at}.${f.key}`;
+    const where = `${at}・${f.label}`;
     const empty = v === undefined || v === null || v === "" || (Array.isArray(v) && v.length === 0);
     if (empty) {
       if ("required" in f && f.required) errors.push(`${where} 必填`);
@@ -240,11 +242,12 @@ function checkFields(fields: Field[], data: Record<string, unknown>, at: string)
         break;
       }
       case "strings":
+      case "service_keys":
         if (!Array.isArray(v) || v.some((s) => typeof s !== "string")) errors.push(`${where} 應為文字清單`);
         break;
       case "list":
         if (!Array.isArray(v)) errors.push(`${where} 應為清單`);
-        else v.forEach((item, i) => errors.push(...checkFields(f.fields, item as Record<string, unknown>, `${where}[${i}]`)));
+        else v.forEach((item, i) => errors.push(...checkFields(f.fields, item as Record<string, unknown>, `${where} 第 ${i + 1} 項`)));
         break;
       case "object":
         errors.push(...checkFields(f.fields, v as Record<string, unknown>, where));
@@ -254,13 +257,45 @@ function checkFields(fields: Field[], data: Record<string, unknown>, at: string)
   return errors;
 }
 
-export function validateBlocks(blocks: unknown, at = "content"): string[] {
+// ── 頁面：slug 規則與服務頁、案例頁的 meta 欄位
+
+export const SERVICE_META_FIELDS: Field[] = [
+  { key: "short", label: "短名稱（圖片磚標題）", type: "text", required: true },
+  { key: "en", label: "英文名稱（圖片磚小字）", type: "text", required: true },
+  { key: "hero", label: "代表圖（列表、分享圖）", type: "image", required: true },
+  { key: "summary", label: "列表摘要", type: "textarea", required: true },
+];
+
+export const CASE_META_FIELDS: Field[] = [
+  { key: "type", label: "類型（例：老屋翻修）", type: "text", required: true },
+  { key: "cover", label: "封面圖", type: "image", required: true },
+  { key: "summary", label: "摘要（列表與 Meta 描述）", type: "textarea", required: true },
+  { key: "services", label: "相關服務", type: "service_keys" },
+];
+
+export const metaFieldsFor = (slug: string) =>
+  slug.startsWith("services/") ? SERVICE_META_FIELDS : slug.startsWith("cases/") ? CASE_META_FIELDS : null;
+
+/** 一段或多段小寫英數與連字號，以 / 分隔；首頁固定為 home */
+export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*(?:\/[a-z0-9]+(?:-[a-z0-9]+)*)*$/;
+
+export function validatePage(page: { slug?: unknown; title?: unknown; meta?: unknown; content?: unknown }): string[] {
+  const errors: string[] = [];
+  if (typeof page.slug !== "string" || !SLUG_PATTERN.test(page.slug)) errors.push("slug 只能用小寫英文、數字、連字號，多層用 / 分隔");
+  if (typeof page.title !== "string" || !page.title.trim()) errors.push("頁面名稱必填");
+  const metaFields = typeof page.slug === "string" ? metaFieldsFor(page.slug) : null;
+  if (metaFields) errors.push(...checkFields(metaFields, (page.meta ?? {}) as Record<string, unknown>, "頁面資料"));
+  errors.push(...validateBlocks(page.content));
+  return errors;
+}
+
+export function validateBlocks(blocks: unknown, at = ""): string[] {
   if (!Array.isArray(blocks)) return [`${at} 應為 block 清單`];
   return blocks.flatMap((b, i) => {
-    const where = `${at}[${i}]`;
+    const where = `${at}區塊 #${i + 1}`;
     const def = BLOCKS[b?.type as BlockType];
     if (!def) return [`${where} 未知的 block 類型：${String(b?.type)}`];
     if (typeof b.id !== "string" || !b.id) return [`${where} 缺少 id`];
-    return checkFields(def.fields, b.data ?? {}, `${where}(${b.type})`);
+    return checkFields(def.fields, b.data ?? {}, `${where}（${def.label}）`);
   });
 }
