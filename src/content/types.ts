@@ -29,6 +29,8 @@ export interface TemplateSettings {
   work_items: string[];
   nav: { href: string; label: string }[];
   default_image: string;
+  /** 「預約諮詢」按鈕連到的需求表單 */
+  booking_url: string;
 }
 
 /** 服務頁（slug 為 services/xxx）的擴充 meta：供首頁磚格、服務列表、頁尾等引用 */

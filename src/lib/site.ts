@@ -21,6 +21,7 @@ export function siteOf(store: Store) {
     line: store.social_links?.line ?? "",
     facebook: store.social_links?.facebook ?? "",
     defaultImage: t.default_image,
+    bookingUrl: t.booking_url,
     mapUrl: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address.full),
     mapEmbed: "https://www.google.com/maps?q=" + encodeURIComponent(address.full) + "&output=embed",
   };

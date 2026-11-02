@@ -20,7 +20,7 @@ export default function SiteHeader({ site }: { site: Site }) {
           {site.nav.map((n) => (
             <Link key={n.href} href={n.href} aria-current={path.startsWith(n.href) ? "page" : undefined}>{n.label}</Link>
           ))}
-          <Link href="/contact/" className="btn btn-sm">預約諮詢</Link>
+          <a href={site.bookingUrl} target="_blank" rel="noopener" className="btn btn-sm">預約諮詢</a>
         </nav>
         <button
           className="menu-toggle"

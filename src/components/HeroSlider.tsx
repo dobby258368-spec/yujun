@@ -52,7 +52,9 @@ export default function HeroSlider({
       <div className="hero-text">
         <h1>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
-        {cta && <Link href={cta.href} className="btn">{cta.label}</Link>}
+        {cta && (/^https?:/.test(cta.href)
+          ? <a href={cta.href} target="_blank" rel="noopener" className="btn">{cta.label}</a>
+          : <Link href={cta.href} className="btn">{cta.label}</Link>)}
       </div>
       {count > 1 && (
         <>
